@@ -1,28 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
     public Camera Camera;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ground")
         {
-            Camera.transform.position = other.gameObject.transform.position;
+            // fix it, so it's a bit slower
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, other.transform.position + new Vector3(0, 0, -10f), 1f);
         }
     }
 }
