@@ -460,8 +460,8 @@ GameObject:
   m_Component:
   - component: {fileID: 805282846}
   - component: {fileID: 805282845}
-  - component: {fileID: 805282844}
   - component: {fileID: 805282847}
+  - component: {fileID: 805282844}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45fe0c3c883ca741be8bc7fcc65c06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
   player: {fileID: 1323478020}
 --- !u!212 &805282845
 SpriteRenderer:
