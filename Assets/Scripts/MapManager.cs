@@ -20,9 +20,11 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++) 
             {
-                Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
+                Screens[i, j] = Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
             }
         }
+
+        Crawler();
 
         for (int i = 0; i < 7; i++)
         {
@@ -43,6 +45,8 @@ public class MapManager : MonoBehaviour
         {
             Instantiate(VerticalHedgeClosed, new Vector3(i * 16, 58, 0), Quaternion.identity);
         }
+
+
 
         for (int i = 0; i < 6; i++)
         {
@@ -77,8 +81,25 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+    }
 
-        // Set up a path of map parts, make sure they connect well and also make sure you can get which map player is on, and move the camera to the middle of said map
+    void Crawler()
+    {
+        bool allConnected = false;
+        int[,] currentPos = new int[1, 2]
+        {
+            {3, 1}
+        };
+
+        while (allConnected == false)
+        {
+            GameObject screen = Screens[currentPos[1, 1], currentPos[1, 2]];
+
+            if (screen.accesible() == false)
+            {
+                
+            }
+        }
     }
 
     // Update is called once per frame
