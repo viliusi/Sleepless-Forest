@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31463071}
   - component: {fileID: 31463074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 31463070}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 2.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 1013636125}
   - component: {fileID: 1013636124}
   - component: {fileID: 1013636123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Melee weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,6 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4da887c76493df47886759ef24aaa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1323478020}
 --- !u!114 &1013636125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,8 +679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289babaf65085f942a353cb5c2b1e9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  cam: {fileID: 0}
+  rb: {fileID: 1013636123}
+  cam: {fileID: 1889252579}
 --- !u!1 &1323478015
 GameObject:
   m_ObjectHideFlags: 0
