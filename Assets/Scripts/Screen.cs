@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Screen : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class Screen : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool accesible()
+    {
+        return true;
     }
 }

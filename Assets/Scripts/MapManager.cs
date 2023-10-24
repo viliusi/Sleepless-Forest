@@ -86,21 +86,24 @@ public class MapManager : MonoBehaviour
     void Crawler()
     {
         bool allConnected = false;
-        int[,] currentPos = new int[1, 2]
-        {
-            {3, 1}
-        };
+        int[] currentPos = new int[2]{3, 2};
+
+        bool[,] connected = new bool[7, 7];
+        connected[3, 1] = true;
 
         while (allConnected == false)
         {
-            GameObject screen = Screens[currentPos[1, 1], currentPos[1, 2]];
-
+            GameObject screen = Screens[currentPos[0], currentPos[1]];
+            
             if (screen.accesible() == false)
             {
                 
             }
+
+            // Test if they're all connected
         }
     }
+
 
     // Update is called once per frame
     void Update()
