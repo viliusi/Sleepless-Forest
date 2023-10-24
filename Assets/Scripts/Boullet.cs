@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Boullet : MonoBehaviour
 {
+    //link "bulletDamage" and EnemyStats to weapon.cs
+    public EnemyStats enemyStats;
+
   void OnCollisionEnter2D(Collision2D collision)
   {
-        if (collision.gameObject.tag != "PlayerTag")
+        if (collision.gameObject.tag != "EnemyTag")
         {
-            Destroy(gameObject);
+            enemyStats.TakeDamage(Weapon.bulletDamage);
         }
   }
 }
