@@ -13,5 +13,9 @@ public class Boullet : MonoBehaviour
         {
             enemyStats.TakeDamage(Weapon.bulletDamage);
         }
-  }
+        else if (collision.gameObject.tag != "PlayerTag")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

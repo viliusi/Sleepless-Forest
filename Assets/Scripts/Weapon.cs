@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
 
     public float BulletForce = 20f;
     public int bulletDamage;
-
     public EnemyStats enemyStats;
 
     // Update is called once per frame
