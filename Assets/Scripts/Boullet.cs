@@ -16,7 +16,9 @@ public class Boullet : MonoBehaviour
         {
             Weapon script = Weapon.GetComponent<Weapon>();
             int damage = script.bulletDamage;
+            enemyStats = GetComponent<EnemyStats>();
             enemyStats.TakeDamage(damage);
+            Destroy(gameObject);
         }
         else if (collision.gameObject.tag != "PlayerTag")
         {
