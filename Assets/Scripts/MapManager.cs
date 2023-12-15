@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     {
         for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < 7; j++) 
+            for (int j = 0; j < 7; j++)
             {
                 Screens[i, j] = Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
             }
@@ -50,7 +50,7 @@ public class MapManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            for (int j = 0; j < 7; j++) 
+            for (int j = 0; j < 7; j++)
             {
                 int pick = Random.Range(0, 2);
 
@@ -86,7 +86,7 @@ public class MapManager : MonoBehaviour
     void Crawler()
     {
         bool allConnected = false;
-        int[] currentPos = new int[2]{3, 2};
+        int[] currentPos = new int[2] { 3, 2 };
 
         bool[,] connected = new bool[7, 7];
         connected[3, 1] = true;
@@ -94,13 +94,16 @@ public class MapManager : MonoBehaviour
         while (allConnected == false)
         {
             GameObject screen = Screens[currentPos[0], currentPos[1]];
-            
-            if (screen.accesible() == false)
+            Screen script = screen.GetComponent<Screen>();
+
+            if (script.accesible() == true)
             {
-                
+                print("Accesible");
             }
 
             // Test if they're all connected
+
+            allConnected = false;
         }
     }
 
@@ -108,6 +111,6 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
