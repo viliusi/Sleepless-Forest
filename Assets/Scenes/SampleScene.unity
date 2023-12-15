@@ -188,6 +188,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6966578794968023144, guid: dbdc17ccc9fe00f4b974a893e531dabb, type: 3}
   Player: {fileID: 1323478020}
   BulletForce: 20
+  bulletDamage: 5
   enemyStats: {fileID: 805282850}
 --- !u!50 &188021186
 Rigidbody2D:
@@ -580,7 +581,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &805282848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
