@@ -6,6 +6,8 @@ public class Melee : MonoBehaviour
 {
     public Transform Player;
 
+    private float damage;
+
     void Update()
     {
         transform.position = Player.position;
@@ -20,4 +22,13 @@ public class Melee : MonoBehaviour
     {
         
     }
-}
+
+    private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+    }
+
