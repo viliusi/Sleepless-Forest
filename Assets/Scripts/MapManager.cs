@@ -11,20 +11,14 @@ public class MapManager : MonoBehaviour
     public GameObject VerticalHedgeClosed;
     public GameObject VerticalHedgeOpen;
 
-    public GameObject[,] Screens = new GameObject[7, 7];
+    public GameObject[,] Screens = new GameObject[6, 6];
+    public bool[,] VerticalWalls = new bool[5, 6];
+    public bool[,] HorizontalWalls = new bool[6, 5];
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 7; i++)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                Screens[i, j] = Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
-            }
-        }
-
-        Crawler();
+        crawler();
 
         for (int i = 0; i < 7; i++)
         {
@@ -83,27 +77,86 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void Crawler()
+    void crawler()
     {
         bool allConnected = false;
-        int[] currentPos = new int[2] { 3, 2 };
 
-        bool[,] connected = new bool[7, 7];
+        bool[,] connected = new bool[6, 6];
         connected[3, 1] = true;
 
-        while (allConnected == false)
+
+
+        /*while (allConnected == false)
         {
-            GameObject screen = Screens[currentPos[0], currentPos[1]];
-            Screen script = screen.GetComponent<Screen>();
+            
+        }*/
+    }
 
-            if (script.accesible() == true)
-            {
-                print("Accesible");
-            }
+    void setWalls(int x, int y)
+    {
+        bool bottomWall;
+        bool leftWall;
+        bool rightWall;
+        bool topWall;
 
-            // Test if they're all connected
+        // Check walls
+        if (Walls[x, y] == true)
+        {
+            bottomWall = true;
+        }
+        else
+        {
+            bottomWall = false;
+        }
 
-            allConnected = false;
+        if (Walls[x, y] == true)
+        {
+            bottomWall = true;
+        }
+        else
+        {
+            bottomWall = false;
+        }
+
+        if (Walls[x, y] == true)
+        {
+            bottomWall = true;
+        }
+        else
+        {
+            bottomWall = false;
+        }
+
+        if (Walls[x, y] == true)
+        {
+            bottomWall = true;
+        }
+        else
+        {
+            bottomWall = false;
+        }
+
+
+
+
+
+    }
+
+    int chanceTime()
+    {
+        int pick = Random.Range(0, 10);
+
+        if (pick <= 5)
+        {
+            return 1;
+        }
+        else if (pick <= 9)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
         }
     }
 
