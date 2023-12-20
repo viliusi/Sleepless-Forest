@@ -14,10 +14,11 @@ public class Boullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "EnemyTag")
         {
-            Weapon script = Weapon.GetComponent<Weapon>();
-            int damage = script.bulletDamage;
-            enemyStats = GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(damage);
+            Weapon weapon = Weapon.GetComponent<Weapon>();
+            int damage = (weapon.bulletDamage);
+            EnemyStats enemystats = collision.gameObject.GetComponent<EnemyStats>();
+            enemystats.health -= damage;
+            print("i am taking damage" + enemystats.health);
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag != "PlayerTag")

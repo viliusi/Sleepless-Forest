@@ -12,12 +12,14 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        // public Slider healthBar;
     }
 
     // Update is called once per frame
     public void TakeDamage(int amount)
     {
         health -= amount;
+
         if(health <= 0)
         {
             Destroy(gameObject);
