@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 	private IEnumerator Cooldown()
 	{
 		yield return new WaitForSeconds(0.1f);
-		print("dodge done");
 		_coolDown = true;
 		rend.sharedMaterial = material[1];
 		yield return new WaitForSeconds(2);
@@ -71,10 +70,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private IEnumerator DodgeInvincibility()
     {
-		print("Invincible");
 		rend.sharedMaterial = material[2];
 		yield return new WaitForSeconds(0.5f);
-		print("Deactivated");
 		rend.sharedMaterial = material[1];
     }
 }
