@@ -94,13 +94,15 @@ public class MapManager : MonoBehaviour
 
     void setWalls(int x, int y)
     {
+        // Set up code here, idea is that when you get to a room, check for which paths are availble, then randomly choose between 1-3
+
         bool bottomWall;
         bool leftWall;
         bool rightWall;
         bool topWall;
 
         // Check walls
-        if (Walls[x, y] == true)
+        /*if (Walls[x, y] == true)
         {
             bottomWall = true;
         }
@@ -134,7 +136,7 @@ public class MapManager : MonoBehaviour
         else
         {
             bottomWall = false;
-        }
+        }*/
 
 
 
