@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDealDamage : MonoBehaviour
 {
     public PlayerStats playerStats;
-    public int damage = 2;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
