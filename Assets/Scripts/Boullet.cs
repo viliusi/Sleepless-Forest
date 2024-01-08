@@ -18,7 +18,6 @@ public class Boullet : MonoBehaviour
             int damage = (weapon.bulletDamage);
             EnemyStats enemystats = collision.gameObject.GetComponent<EnemyStats>();
             enemystats.health -= damage;
-            print("i am taking damage" + enemystats.health);
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag != "PlayerTag")

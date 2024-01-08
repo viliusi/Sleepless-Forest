@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPoisonDamage : MonoBehaviour
 {
     public PlayerStats playerStats;
-    public int poisonDamage; 
+    public int poisonDamage;
     // Start is called before the first frame update
     void Start()
     {
