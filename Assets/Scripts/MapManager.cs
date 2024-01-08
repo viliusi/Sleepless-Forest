@@ -12,8 +12,8 @@ public class MapManager : MonoBehaviour
     public GameObject VerticalHedgeOpen;
 
     public GameObject[,] Screens = new GameObject[6, 6];
-    public bool[,] VerticalWalls = new bool[7, 6];
-    public bool[,] HorizontalWalls = new bool[6, 7];
+    public bool[,] VerticalWalls = new bool[9, 8];
+    public bool[,] HorizontalWalls = new bool[8, 9];
 
     // Start is called before the first frame update
     void Start()
@@ -55,24 +55,20 @@ public class MapManager : MonoBehaviour
     {
         bool allConnected = false;
 
-        /*bool[,] connected = new bool[6, 6];
-        connected[3, 1] = true;*/
+        Vector2 room = new Vector2(3, 1);
 
-        while (allConnected == false)
+        for (int i = 0; i < 7; i++)
         {
-            // get room
-            Vector2 room = new Vector2(3, 1);
+            for (int j = 0; j < 7; j++)
+            {
+                room = new Vector2(i, j);
 
-            // chance time
-            int doorAmount = chanceTime();
+                // chance time
+                int doorAmount = chanceTime();
 
-            // choose which passages to change
-            setWalls(doorAmount, room);
-
-            // if the door is not already opened, set to open
-
-
-            allConnected = true;
+                // choose which passages to change
+                setWalls(doorAmount, room);
+            }
         }
     }
 
@@ -111,35 +107,31 @@ public class MapManager : MonoBehaviour
                 switch (pick)
                 {
                     case 0:
-                        print("Case 0");
-                        if (HorizontalWalls[(int)room.x, (int)room.y] == false)
+                        if (HorizontalWalls[(int)room.x + 1, (int)room.y + 1] == false)
                         {
-                            HorizontalWalls[(int)room.x, (int)room.y] = true;
+                            HorizontalWalls[(int)room.x + 1, (int)room.y + 1] = true;
                             retry = false;
                         }
 
                         break;
                     case 1:
-                        print("Case 1");
-                        if (VerticalWalls[(int)room.x, (int)room.y] == false)
+                        if (VerticalWalls[(int)room.x + 1, (int)room.y + 1] == false)
                         {
-                            VerticalWalls[(int)room.x, (int)room.y] = true;
+                            VerticalWalls[(int)room.x + 1, (int)room.y + 1] = true;
                             retry = false;
                         }
                         break;
                     case 2:
-                        print("Case 2");
-                        if (VerticalWalls[(int)room.x, (int)room.y - 1] == false)
+                        if (VerticalWalls[(int)room.x + 1, (int)room.y] == false)
                         {
-                            VerticalWalls[(int)room.x, (int)room.y - 1] = true;
+                            VerticalWalls[(int)room.x + 1, (int)room.y] = true;
                             retry = false;
                         }
                         break;
                     default:
-                        print("Case default");
-                        if (HorizontalWalls[(int)room.x, (int)room.y - 1] == false)
+                        if (HorizontalWalls[(int)room.x + 1, (int)room.y] == false)
                         {
-                            HorizontalWalls[(int)room.x, (int)room.y - 1] = true;
+                            HorizontalWalls[(int)room.x + 1, (int)room.y] = true;
                             retry = false;
                         }
                         break;
@@ -160,7 +152,7 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                bool open = HorizontalWalls[i, j];
+                bool open = HorizontalWalls[i + 1, j + 1];
 
                 if (open == true)
                 {
@@ -177,7 +169,7 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
-                bool open = VerticalWalls[i, j];
+                bool open = VerticalWalls[i + 1, j + 1];
 
                 if (open == true)
                 {
