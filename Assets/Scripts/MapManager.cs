@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -11,16 +12,22 @@ public class MapManager : MonoBehaviour
     public GameObject VerticalHedgeClosed;
     public GameObject VerticalHedgeOpen;
 
-    public GameObject[,] Screens = new GameObject[7, 7];
+    public GameObject[,] Screens = new GameObject[6, 6];
+    public bool[,] VerticalWalls = new bool[9, 8];
+    public bool[,] HorizontalWalls = new bool[8, 9];
+
+    public List<GameObject> AllWalls = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        crawler();
+
         for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < 7; j++) 
+            for (int j = 0; j < 7; j++)
             {
-                Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
+                Instantiate(Ground, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
             }
         }
 
@@ -43,21 +50,125 @@ public class MapManager : MonoBehaviour
         {
             Instantiate(VerticalHedgeClosed, new Vector3(i * 16, 58, 0), Quaternion.identity);
         }
+    }
 
+    void crawler()
+    {
+        bool allConnected = false;
+
+        Vector2 room = new Vector2(3, 1);
+
+        for (int i = 0; i < 7; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                room = new Vector2(i, j);
+
+                // chance time
+                int doorAmount = chanceTime();
+
+                // choose which passages to change
+                setWalls(doorAmount, room);
+            }
+        }
+
+        buildWalls();
+    }
+
+    int chanceTime()
+    {
+        int pick = Random.Range(0, 10);
+
+        if (pick <= 5)
+        {
+            return 1;
+        }
+        else if (pick <= 9)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
+
+    void setWalls(int number, Vector2 room)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            bool retry = true;
+
+            int attempts = 0;
+
+            while (retry == true)
+            {
+                attempts++;
+
+                int pick = Random.Range(0, 3);
+
+                switch (pick)
+                {
+                    case 0:
+                        if (HorizontalWalls[(int)room.x + 1, (int)room.y + 1] == false)
+                        {
+                            HorizontalWalls[(int)room.x + 1, (int)room.y + 1] = true;
+                            retry = false;
+                        }
+
+                        break;
+                    case 1:
+                        if (VerticalWalls[(int)room.x + 1, (int)room.y + 1] == false)
+                        {
+                            VerticalWalls[(int)room.x + 1, (int)room.y + 1] = true;
+                            retry = false;
+                        }
+                        break;
+                    case 2:
+                        if (VerticalWalls[(int)room.x + 1, (int)room.y] == false)
+                        {
+                            VerticalWalls[(int)room.x + 1, (int)room.y] = true;
+                            retry = false;
+                        }
+                        break;
+                    default:
+                        if (HorizontalWalls[(int)room.x + 1, (int)room.y] == false)
+                        {
+                            HorizontalWalls[(int)room.x + 1, (int)room.y] = true;
+                            retry = false;
+                        }
+                        break;
+
+                }
+
+                if (attempts > 10)
+                {
+                    retry = false;
+                }
+            }
+        }
+    }
+
+    void buildWalls()
+    {
         for (int i = 0; i < 6; i++)
         {
-            for (int j = 0; j < 7; j++) 
+            for (int j = 0; j < 7; j++)
             {
-                int pick = Random.Range(0, 2);
+                GameObject wall;
 
-                if (pick == 1)
+                bool open = HorizontalWalls[i + 1, j + 1];
+
+                if (open == true)
                 {
-                    Instantiate(HorizontalHedgeOpen, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(HorizontalHedgeOpen, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(HorizontalHedgeClosed, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(HorizontalHedgeClosed, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
                 }
+
+                AllWalls.Add(wall);
             }
         }
 
@@ -65,25 +176,53 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
-                int pick = Random.Range(0, 2);
+                GameObject wall;
 
-                if (pick == 1)
+                bool open = VerticalWalls[i + 1, j + 1];
+
+                if (open == true)
                 {
-                    Instantiate(VerticalHedgeOpen, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(VerticalHedgeOpen, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(VerticalHedgeClosed, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(VerticalHedgeClosed, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
                 }
+
+                AllWalls.Add(wall);
             }
         }
-
-        // Set up a path of map parts, make sure they connect well and also make sure you can get which map player is on, and move the camera to the middle of said map
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.R))
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    HorizontalWalls[i + 1, j + 1] = false;
+                }
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    VerticalWalls[i + 1, j + 1] = false;
+                }
+            }
+
+            foreach (var wall in AllWalls)
+            {
+                Destroy(wall);
+            }
+
+            crawler();
+
+            buildWalls();
+        }
     }
 }
