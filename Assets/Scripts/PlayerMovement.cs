@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Sprites;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	public float StunDuration;
 
 	public PlayerStats playerStats;
+	public int bearTrapDamage;
 	void Start()
 	{
 		_coolDown = false;
@@ -85,19 +87,21 @@ public class PlayerMovement : MonoBehaviour
 		rend.sharedMaterial = material[1];
 	}
 
-	private IEnumerator Stun()
+	private IEnumerator Stun(Collider2D bearTrap)
 	{
 		_movementPossible = false;
 		yield return new WaitForSeconds(StunDuration);
 		_movementPossible = true;
-	}
+        Destroy(bearTrap.transform.parent.gameObject);
+    }
 
-	void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.tag == "TrapTag")
+	void OnTriggerEnter2D(Collider2D other)
+    {
+		if (other.gameObject.tag == "TrapTag")
 		{
-			StartCoroutine(Stun());
-			playerStats.TakeDamage(BearTrapDamage);
+			print("Trapped!");
+			StartCoroutine(Stun(other));
+			playerStats.TakeDamage(bearTrapDamage);
 		}
 	}
 }
