@@ -7,23 +7,28 @@ public class PlayerStats : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public bool damagePossible;
     public float insomnia;
     public Image healthBar;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        damagePossible = true;
     }
 
     // Update is called once per frame
     public void TakeDamage(int amount)
     {
-        health -= amount;
-        healthBar.fillAmount = health / 10;
-        if(health <= 0)
+        if (damagePossible == true) 
         {
-            Destroy(gameObject);
+            health -= amount;
+            healthBar.fillAmount = health / 10;
+            if(health <= 0)
+            {
+                Destroy(gameObject);
 
+            }
         }
-    }
+}
 }

@@ -6,6 +6,7 @@ public class EnemyDealDamage : MonoBehaviour
 {
     public PlayerStats playerStats;
     public int damage;
+    bool damagePossible;
     // Start is called before the first frame update
     void Start()
     {

@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Sprites;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public PlayerStats playerStats;
 	public Material[] material;
 	Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
+	//public Image staminaStatus;
 
 	private Rigidbody2D _rb;
 	private Vector3 _lastMovement;
@@ -21,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
 		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
-    }
+		GetComponent<Image>().color = Color.green;
+
+	}
 
     void Update()
 	{
@@ -62,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.1f);
 		_coolDown = true;
+		//GetComponent<Image>().color = Color.white;
 		rend.sharedMaterial = material[1];
 		yield return new WaitForSeconds(2);
 		rend.sharedMaterial = material[0];
@@ -70,8 +76,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private IEnumerator DodgeInvincibility()
     {
+		playerStats.damagePossible = false;
 		rend.sharedMaterial = material[2];
 		yield return new WaitForSeconds(0.5f);
 		rend.sharedMaterial = material[1];
-    }
+		playerStats.damagePossible = true;
+	}
 }
