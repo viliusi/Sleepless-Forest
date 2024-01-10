@@ -21,18 +21,19 @@ public class PlayerMovement : MonoBehaviour
 	private bool _coolDown;
 
 	private bool _movementPossible;
-
+	
 	public float StunDuration;
 
-	public PlayerStats playerStats;
 	public int bearTrapDamage;
+
 	void Start()
 	{
 		_coolDown = false;
+		_movementPossible = true;
 		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
-		GetComponent<Image>().color = Color.green;
+		// GetComponent<Image>().color = Color.green;
 
 	}
 
