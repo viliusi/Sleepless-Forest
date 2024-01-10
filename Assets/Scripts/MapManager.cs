@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -15,6 +16,8 @@ public class MapManager : MonoBehaviour
     public bool[,] VerticalWalls = new bool[9, 8];
     public bool[,] HorizontalWalls = new bool[8, 9];
 
+    public List<GameObject> AllWalls = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                Instantiate(Ground, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
+                Instantiate(Ground, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
             }
         }
 
@@ -47,8 +50,6 @@ public class MapManager : MonoBehaviour
         {
             Instantiate(VerticalHedgeClosed, new Vector3(i * 16, 58, 0), Quaternion.identity);
         }
-
-        buildWalls();
     }
 
     void crawler()
@@ -70,6 +71,8 @@ public class MapManager : MonoBehaviour
                 setWalls(doorAmount, room);
             }
         }
+
+        buildWalls();
     }
 
     int chanceTime()
@@ -152,16 +155,20 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
+                GameObject wall;
+
                 bool open = HorizontalWalls[i + 1, j + 1];
 
                 if (open == true)
                 {
-                    Instantiate(HorizontalHedgeOpen, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(HorizontalHedgeOpen, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(HorizontalHedgeClosed, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(HorizontalHedgeClosed, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
                 }
+
+                AllWalls.Add(wall);
             }
         }
 
@@ -169,16 +176,20 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
+                GameObject wall;
+
                 bool open = VerticalWalls[i + 1, j + 1];
 
                 if (open == true)
                 {
-                    Instantiate(VerticalHedgeOpen, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(VerticalHedgeOpen, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(VerticalHedgeClosed, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(VerticalHedgeClosed, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
                 }
+
+                AllWalls.Add(wall);
             }
         }
     }
@@ -186,6 +197,32 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.R))
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    HorizontalWalls[i + 1, j + 1] = false;
+                }
+            }
 
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    VerticalWalls[i + 1, j + 1] = false;
+                }
+            }
+
+            foreach (var wall in AllWalls)
+            {
+                Destroy(wall);
+            }
+
+            crawler();
+
+            buildWalls();
+        }
     }
 }
