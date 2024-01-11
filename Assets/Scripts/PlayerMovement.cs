@@ -94,4 +94,22 @@ public class PlayerMovement : MonoBehaviour
 		rend.sharedMaterial = material[1];
 		playerStats.damagePossible = true;
 	}
+
+    private IEnumerator Stun(Collider2D bearTrap)
+    {
+        _movementPossible = false;
+        yield return new WaitForSeconds(StunDuration);
+        _movementPossible = true;
+        Destroy(bearTrap.transform.parent.gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "TrapTag")
+        {
+            print("Trapped!");
+            StartCoroutine(Stun(other));
+            playerStats.TakeDamage(bearTrapDamage);
+        }
+    }
 }
