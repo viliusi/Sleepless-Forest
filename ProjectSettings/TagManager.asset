@@ -8,6 +8,7 @@ TagManager:
   - Attack
   - PlayerTag
   - EnemyTag
+  - TrapTag
   layers:
   - Default
   - TransparentFX
