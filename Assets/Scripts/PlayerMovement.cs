@@ -1,16 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Sprites;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public PlayerStats playerStats;
 	public Material[] material;
 	Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
+	//public Image staminaStatus;
 
 	private Rigidbody2D _rb;
 	private Vector3 _lastMovement;
@@ -18,21 +21,23 @@ public class PlayerMovement : MonoBehaviour
 	private bool _coolDown;
 
 	private bool _movementPossible;
-
+	
 	public float StunDuration;
 
-	public PlayerStats playerStats;
 	public int bearTrapDamage;
+
 	void Start()
 	{
 		_coolDown = false;
+		_movementPossible = true;
 		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
-		_movementPossible = true;
+		// GetComponent<Image>().color = Color.green;
+
 	}
 
-	void Update()
+    void Update()
 	{
 		if (_movementPossible == true)
 		{
@@ -74,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.1f);
 		_coolDown = true;
+		//GetComponent<Image>().color = Color.white;
 		rend.sharedMaterial = material[1];
 		yield return new WaitForSeconds(2);
 		rend.sharedMaterial = material[0];
@@ -81,27 +87,29 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	private IEnumerator DodgeInvincibility()
-	{
+    {
+		playerStats.damagePossible = false;
 		rend.sharedMaterial = material[2];
 		yield return new WaitForSeconds(0.5f);
 		rend.sharedMaterial = material[1];
+		playerStats.damagePossible = true;
 	}
 
-	private IEnumerator Stun(Collider2D bearTrap)
-	{
-		_movementPossible = false;
-		yield return new WaitForSeconds(StunDuration);
-		_movementPossible = true;
+    private IEnumerator Stun(Collider2D bearTrap)
+    {
+        _movementPossible = false;
+        yield return new WaitForSeconds(StunDuration);
+        _movementPossible = true;
         Destroy(bearTrap.transform.parent.gameObject);
     }
 
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-		if (other.gameObject.tag == "TrapTag")
-		{
-			print("Trapped!");
-			StartCoroutine(Stun(other));
-			playerStats.TakeDamage(bearTrapDamage);
-		}
-	}
+        if (other.gameObject.tag == "TrapTag")
+        {
+            print("Trapped!");
+            StartCoroutine(Stun(other));
+            playerStats.TakeDamage(bearTrapDamage);
+        }
+    }
 }
