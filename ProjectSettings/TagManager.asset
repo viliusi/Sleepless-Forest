@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Attack
   - PlayerTag
+  - EnemyTag
+  - TrapTag
   layers:
   - Default
   - TransparentFX
@@ -14,9 +16,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - MeleeWeapon
+  - EnemyLayer
+  - RangedWeapon
   - 
   - 
   - 

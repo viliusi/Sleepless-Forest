@@ -1,68 +1,85 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Sprites;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public PlayerStats playerStats;
 	public Material[] material;
 	Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
+	//public Image staminaStatus;
 
 	private Rigidbody2D _rb;
 	private Vector3 _lastMovement;
 
 	private bool _coolDown;
 
-    void Start()
-    {
+	private bool _movementPossible;
+	
+	public float StunDuration;
+
+	public int bearTrapDamage;
+
+	void Start()
+	{
 		_coolDown = false;
+		_movementPossible = true;
 		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
-    }
+		// GetComponent<Image>().color = Color.green;
+
+	}
 
     void Update()
 	{
-		//Basic movement, WASD
-		if (Input.GetKey(KeyCode.W))
+		if (_movementPossible == true)
 		{
-			_lastMovement = Vector3.up * Time.deltaTime * Speed;
-			transform.Translate(_lastMovement);
-		}
+			//Basic movement, WASD
+			if (Input.GetKey(KeyCode.W))
+			{
+				_lastMovement = Vector3.up * Time.deltaTime * Speed;
+				transform.Translate(_lastMovement);
+			}
 
-		if (Input.GetKey(KeyCode.S))
-		{
-			_lastMovement = Vector3.down * Time.deltaTime * Speed;
-			transform.Translate(_lastMovement);
-		}
+			if (Input.GetKey(KeyCode.S))
+			{
+				_lastMovement = Vector3.down * Time.deltaTime * Speed;
+				transform.Translate(_lastMovement);
+			}
 
-		if (Input.GetKey(KeyCode.D))
-		{
-			_lastMovement = Vector3.right * Time.deltaTime * Speed;
-			transform.Translate(_lastMovement);
-		}
+			if (Input.GetKey(KeyCode.D))
+			{
+				_lastMovement = Vector3.right * Time.deltaTime * Speed;
+				transform.Translate(_lastMovement);
+			}
 
-		if (Input.GetKey(KeyCode.A))
-		{
-			_lastMovement = Vector3.left * Time.deltaTime * Speed;
-			transform.Translate(_lastMovement);
-		}
+			if (Input.GetKey(KeyCode.A))
+			{
+				_lastMovement = Vector3.left * Time.deltaTime * Speed;
+				transform.Translate(_lastMovement);
+			}
 
-		//Dodge function, space 
-		if (Input.GetKey(KeyCode.Space) && _coolDown == false)
-		{
-			transform.Translate(_lastMovement * DodgeMultiplier);
-			StartCoroutine(DodgeInvincibility());
-			StartCoroutine(Cooldown());
+			//Dodge function, space 
+			if (Input.GetKey(KeyCode.Space) && _coolDown == false)
+			{
+				transform.Translate(_lastMovement * DodgeMultiplier);
+				StartCoroutine(DodgeInvincibility());
+				StartCoroutine(Cooldown());
+			}
 		}
 	}
 	private IEnumerator Cooldown()
 	{
 		yield return new WaitForSeconds(0.1f);
-		print("dodge done");
 		_coolDown = true;
+		//GetComponent<Image>().color = Color.white;
 		rend.sharedMaterial = material[1];
 		yield return new WaitForSeconds(2);
 		rend.sharedMaterial = material[0];
@@ -71,10 +88,28 @@ public class PlayerMovement : MonoBehaviour
 
 	private IEnumerator DodgeInvincibility()
     {
-		print("Invincible");
+		playerStats.damagePossible = false;
 		rend.sharedMaterial = material[2];
 		yield return new WaitForSeconds(0.5f);
-		print("Deactivated");
 		rend.sharedMaterial = material[1];
+		playerStats.damagePossible = true;
+	}
+
+    private IEnumerator Stun(Collider2D bearTrap)
+    {
+        _movementPossible = false;
+        yield return new WaitForSeconds(StunDuration);
+        _movementPossible = true;
+        Destroy(bearTrap.transform.parent.gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "TrapTag")
+        {
+            print("Trapped!");
+            StartCoroutine(Stun(other));
+            playerStats.TakeDamage(bearTrapDamage);
+        }
     }
 }
