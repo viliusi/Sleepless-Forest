@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+
+        player = GameObject.FindWithTag("PlayerTag").transform;
     }
 
     // Update is called once per frame
