@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class EnemyDealDamage : MonoBehaviour
@@ -12,7 +13,7 @@ public class EnemyDealDamage : MonoBehaviour
     void Start()
     {
         // Get player stats script reference
-        playerStats = GameObject.FindWithTag("PlayerTag").GetComponent<PlayerStats>();
+        playerStats = gameObject.GetComponent<Enemy>().player.gameObject.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame

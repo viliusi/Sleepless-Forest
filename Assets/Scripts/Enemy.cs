@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -43,5 +44,15 @@ public class Enemy : MonoBehaviour
         //temporary: Waits for two seconds before movement is activated, gives player a chance to act first
         yield return new WaitForSeconds(1f);
         rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Screen screenComponent = collision.gameObject.GetComponent<Screen>();
+
+            screenComponent.Enemies.Add(transform.gameObject);
+        }
     }
 }

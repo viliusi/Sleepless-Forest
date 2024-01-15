@@ -27,11 +27,29 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                int random = Random.Range(0, Maps.Count);
+                if (i == 3)
+                {
+                    if (j == 1)
+                    {
+                        Instantiate(Maps[0], new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        int random = Random.Range(0, Maps.Count);
 
-                GameObject map = Maps[random];
+                        GameObject map = Maps[random];
 
-                Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                        Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    int random = Random.Range(0, Maps.Count);
+
+                    GameObject map = Maps[random];
+
+                    Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                }
             }
         }
 
