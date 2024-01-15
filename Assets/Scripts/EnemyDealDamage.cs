@@ -7,11 +7,12 @@ public class EnemyDealDamage : MonoBehaviour
     public PlayerStats playerStats;
     public int damage;
     bool damagePossible;
+
     // Start is called before the first frame update
     void Start()
     {
         // Get player stats script reference
-        playerStats = GameObject.FindWithTag("PlayerTag").GetComponent<"PlayerStats.cs">;
+        playerStats = GameObject.FindWithTag("PlayerTag").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
