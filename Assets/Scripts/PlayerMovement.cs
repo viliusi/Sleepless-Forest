@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Sprites;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
 	Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
-	//public Image staminaStatus;
+	public Image staminaStatus;
+
 
 	private Rigidbody2D _rb;
 	private Vector3 _lastMovement;
@@ -33,8 +33,7 @@ public class PlayerMovement : MonoBehaviour
 		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
-		// GetComponent<Image>().color = Color.green;
-
+		staminaStatus.color = Color.green;
 	}
 
     void Update()
@@ -70,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 			if (Input.GetKey(KeyCode.Space) && _coolDown == false)
 			{
 				transform.Translate(_lastMovement * DodgeMultiplier);
+				staminaStatus.color = Color.black;
 				StartCoroutine(DodgeInvincibility());
 				StartCoroutine(Cooldown());
 			}
@@ -79,19 +79,15 @@ public class PlayerMovement : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.1f);
 		_coolDown = true;
-		//GetComponent<Image>().color = Color.white;
-		rend.sharedMaterial = material[1];
 		yield return new WaitForSeconds(2);
-		rend.sharedMaterial = material[0];
 		_coolDown = false;
+		staminaStatus.color = Color.green;
 	}
 
 	private IEnumerator DodgeInvincibility()
     {
 		playerStats.damagePossible = false;
-		rend.sharedMaterial = material[2];
-		yield return new WaitForSeconds(0.5f);
-		rend.sharedMaterial = material[1];
+		yield return new WaitForSeconds(1f);
 		playerStats.damagePossible = true;
 	}
 
@@ -109,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             print("Trapped!");
             StartCoroutine(Stun(other));
-            playerStats.TakeDamage(bearTrapDamage);
+            playerStats.TakeDamage(bearTrapDamage, 1);
         }
     }
 }

@@ -6,6 +6,7 @@ public class EnemyPoisonDamage : MonoBehaviour
 {
     public PlayerStats playerStats;
     public int poisonDamage;
+    public int poisonDuration;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class EnemyPoisonDamage : MonoBehaviour
     {
         for (int i = 0; i <5; i++)
         {
-            playerStats.TakeDamage(poisonDamage);
+            playerStats.TakeDamage(poisonDamage, poisonDuration);
             print("Player is taking poison damage");
             yield return new WaitForSeconds(1f);
         }

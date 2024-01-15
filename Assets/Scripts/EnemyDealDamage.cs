@@ -6,7 +6,7 @@ public class EnemyDealDamage : MonoBehaviour
 {
     public PlayerStats playerStats;
     public int damage;
-    bool damagePossible;
+    public int duration;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class EnemyDealDamage : MonoBehaviour
     {
         if(collision.gameObject.tag == "PlayerTag")
         {
-            playerStats.TakeDamage(damage);
+            playerStats.TakeDamage(damage, duration);
         }
     }
 }
