@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Screen : MonoBehaviour
 {
-    public List<GameObject> Enemies = new List<GameObject>();
+    private List<GameObject> _enemies = new List<GameObject>();
     public bool IsUnlocked = false;
 
     // Start is called before the first frame update
@@ -25,16 +25,19 @@ public class Screen : MonoBehaviour
         {
             if (!IsUnlocked)
             {
-                Enemies.Add(collision.gameObject);
+                _enemies.Add(collision.gameObject);
+
+                collision.gameObject.GetComponent<Enemy>().IsActive = false;
             }
         }
         else if (collision.gameObject.tag == "PlayerTag")
         {
             IsUnlocked = true;
 
-            foreach (var enemy in Enemies)
+            foreach (var enemy in _enemies)
             {
                 // Find script of enemy and disable being deactivated
+                enemy.gameObject.GetComponent<Enemy>().IsActive = true;
             }
         }
     }
