@@ -713,6 +713,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8911c5e605f24ab469bf31d07956839a, type: 3}
+--- !u!1 &575670972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8294428434252690589, guid: 33ae4a529bfbb1d49a5e18ebe3bf562e, type: 3}
+  m_PrefabInstance: {fileID: 4642660002880793103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &575670976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575670972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce0f911289525949bfd3ea81da7185b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 1323478021}
+  damage: 2
+  duration: 2
 --- !u!1 &590602525
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,11 +865,11 @@ MonoBehaviour:
   playerStats: {fileID: 1323478021}
   material:
   - {fileID: 2100000, guid: 3f6b9a3e70e317f45b3576a516f416e6, type: 2}
-  - {fileID: 2100000, guid: 838372c1878c2dd4bb4ee07363b2d600, type: 2}
   - {fileID: 2100000, guid: e85716953c765aa41b76e4c29f68ad82, type: 2}
   rend: {fileID: 188021188}
   Speed: 5
   DodgeMultiplier: 2.5
+  staminaStatus: {fileID: 1428534940}
   StunDuration: 3
   bearTrapDamage: 2
 --- !u!61 &1323478017
@@ -955,7 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  damagePossible: 0
+  damagePossible: 1
   insomnia: 0
   healthBar: {fileID: 127584562}
 --- !u!114 &1323478022
