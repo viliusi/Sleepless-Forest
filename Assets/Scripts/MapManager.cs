@@ -76,8 +76,6 @@ public class MapManager : MonoBehaviour
 
     void crawler()
     {
-        bool allConnected = false;
-
         Vector2 room = new Vector2(3, 1);
 
         for (int i = 0; i < 7; i++)
