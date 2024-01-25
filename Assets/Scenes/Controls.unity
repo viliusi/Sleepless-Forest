@@ -246,7 +246,6 @@ MonoBehaviour:
   m_Dithering: 0
   m_ClearDepth: 1
   m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
   m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
@@ -318,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b95c380b30d69df4badba282e687d817, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2973158f1174cff4a8a16b351eb9d51d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -752,7 +751,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

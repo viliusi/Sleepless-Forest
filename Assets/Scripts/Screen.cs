@@ -32,8 +32,11 @@ public class Screen : MonoBehaviour
 
             foreach (var enemy in Enemies)
             {
-                // Find script of enemy and disable being deactivated
-                enemy.gameObject.GetComponent<Enemy>().IsActive = true;
+                if (enemy != null)
+                {
+                    // Find script of enemy and disable being deactivated
+                    enemy.gameObject.GetComponent<Enemy>().IsActive = true;
+                }
             }
         }
     }
