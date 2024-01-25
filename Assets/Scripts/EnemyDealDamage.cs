@@ -23,7 +23,7 @@ public class EnemyDealDamage : MonoBehaviour
     {
         if(collision.gameObject.tag == "PlayerTag")
         {
-            playerStats.TakeDamage(damage, duration);
+            StartCoroutine(playerStats.TakeDamage(damage, duration));
         }
     }
 }

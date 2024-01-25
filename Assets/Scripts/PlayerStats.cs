@@ -17,28 +17,29 @@ public class PlayerStats : MonoBehaviour
         damagePossible = true;
     }
 
+
     // Update is called once per frame
 
     //amount being damage to be dealt; duration being the number of times this occurs
-    public IEnumerable TakeDamage(int amount, int duration)
+    public IEnumerator TakeDamage(int amount, int duration)
     {
-        if (damagePossible == true)
-        {
+        if(damagePossible == true)
+            {
             for (int i = duration; i > 0; i--)
             {
                 health -= amount;
-                yield return new WaitForSeconds(1f);
                 healthBar.fillAmount = health / 10;
+                yield return new WaitForSeconds(1f);
                 if (health <= 0)
                 {
                     Destroy(gameObject);
 
                 }
-            }
+                else
+                {
+                }
         }
-        else
-        {
-            print("damage not possible");
-        }
-            }
-        }
+
+    }
+    }
+}
