@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class MapManager : MonoBehaviour
 {
-    public GameObject Ground;
+    public List<GameObject> Maps = new List<GameObject>();
     public GameObject HorizontalHedgeClosed;
     public GameObject HorizontalHedgeOpen;
     public GameObject VerticalHedgeClosed;
@@ -27,7 +26,29 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                Instantiate(Ground, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                if (i == 3)
+                {
+                    if (j == 1)
+                    {
+                        Instantiate(Maps[0], new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                    }
+                    else
+                    {
+                        int random = Random.Range(0, Maps.Count);
+
+                        GameObject map = Maps[random];
+
+                        Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    int random = Random.Range(0, Maps.Count);
+
+                    GameObject map = Maps[random];
+
+                    Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
+                }
             }
         }
 
@@ -54,8 +75,6 @@ public class MapManager : MonoBehaviour
 
     void crawler()
     {
-        bool allConnected = false;
-
         Vector2 room = new Vector2(3, 1);
 
         for (int i = 0; i < 7; i++)

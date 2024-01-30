@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public PlayerStats playerStats;
 	public Material[] material;
-	Renderer rend;
+	public Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
 	public Image staminaStatus;
@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		_coolDown = false;
 		_movementPossible = true;
-		rend = GetComponent<Renderer>();
 		rend.enabled = true;
 		rend.sharedMaterial = material[0];
 		staminaStatus.color = Color.green;
