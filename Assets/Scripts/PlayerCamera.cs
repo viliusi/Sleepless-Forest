@@ -14,6 +14,7 @@ public class PlayerCamera : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             CurrentRoom = other.transform.position;
+            print(CurrentRoom.x + ", " + CurrentRoom.y + ", " + CurrentRoom.z);
         }
     }
 

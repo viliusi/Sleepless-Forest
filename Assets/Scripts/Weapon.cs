@@ -11,6 +11,13 @@ public class Weapon : MonoBehaviour
     public float BulletForce = 20f;
     public int bulletDamage;
     public EnemyStats enemyStats;
+    bool shootingCooldown;
+    public float shootingCooldownDuration = 0.5f;
+
+    private void Start()
+    {
+        shootingCooldown = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,7 +26,10 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Shooting();
+            if (shootingCooldown == false)
+            {
+                Shooting();
+            }
         }
     }
 
@@ -30,5 +40,15 @@ public class Weapon : MonoBehaviour
         script.Weapon = this.gameObject;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
+        StartCoroutine(ShootingCooldown());
+    }
+
+    private IEnumerator ShootingCooldown()
+    {
+        shootingCooldown = true;
+        yield return new WaitForSeconds(shootingCooldownDuration);
+        shootingCooldown = false;
+
+        
     }
 }
