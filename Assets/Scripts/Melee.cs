@@ -28,6 +28,7 @@ public class Melee : MonoBehaviour
             /*if (other.gameObject.CompareTag("Enemy"))
             {
                 other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            
             }*/
         }
     }
