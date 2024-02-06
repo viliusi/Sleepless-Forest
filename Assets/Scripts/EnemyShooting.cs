@@ -6,7 +6,6 @@ public class EnemyShooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public Transform Enemy;
 
     public float BulletForce = 20f;
     public int bulletDamage;
@@ -23,8 +22,10 @@ public class EnemyShooting : MonoBehaviour
     void Update()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Boullet script = bullet.GetComponent<Boullet>();
-        script.Weapon = this.gameObject;
+        EnemyBullet script = bullet.GetComponent<EnemyBullet>();
+
+        script.EnemyShooting = this;
+
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
         StartCoroutine(ShootingCooldown());
