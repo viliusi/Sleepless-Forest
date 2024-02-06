@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Scavengers_SpriteSheet
+  m_Name: Scavengers_SpriteSheet_34
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: a5692d4292b54db42b4427c3de41e88a, type: 3}
+  m_Sprite: {fileID: 21300068, guid: fbe1e7b94bb1a4a099d5bcb15a00141c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
