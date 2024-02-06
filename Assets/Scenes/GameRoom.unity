@@ -453,6 +453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c99a3b045433940b40913d53d9cad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Height: 4
+  Width: 4
+  PlayerStartHeight: 2
+  PlayerStartWidth: 2
   Maps:
   - {fileID: 9107706154285160828, guid: 3e8954d4c6527624397a1d0ac0a88753, type: 3}
   - {fileID: 9107706154285160828, guid: 5b1619d43024c7e4aa21e668ee875c74, type: 3}
@@ -473,6 +477,7 @@ MonoBehaviour:
   VerticalHedgeClosed: {fileID: 3869514392221194385, guid: 63068af5961b1e44d97cb37e80c1b592, type: 3}
   VerticalHedgeOpen: {fileID: 3652648737455308598, guid: 30b8848b1f5381b4e8acdf69da0a70d9, type: 3}
   AllWalls: []
+  AllScreens: []
   Player: {fileID: 1323478015}
 --- !u!4 &315143905
 Transform:

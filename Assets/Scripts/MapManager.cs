@@ -95,24 +95,24 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < Width; i++)
+        for (int i = 0; i < Width + 1; i++)
         {
             AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3(-7.5f, i * 9, 0), Quaternion.identity));
         }
 
-        for (int i = 0; i < Width; i++)
+        for (int i = 0; i < Width + 1; i++)
         {
-            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3(103.5f, i * 9, 0), Quaternion.identity));
+            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3((Width * 16) + 7.5f, i * 9, 0), Quaternion.identity));
         }
 
-        for (int i = 0; i < Height; i++)
+        for (int i = 0; i < Height + 1; i++)
         {
             AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, -4, 0), Quaternion.identity));
         }
 
-        for (int i = 0; i < Height; i++)
+        for (int i = 0; i < Height + 1; i++)
         {
-            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, 58, 0), Quaternion.identity));
+            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, (Height * 9) + 4, 0), Quaternion.identity));
         }
     }
 
@@ -306,6 +306,8 @@ public class MapManager : MonoBehaviour
         {
             Destroy(screen);
         }
+
+        setUp();
 
         crawler();
 
