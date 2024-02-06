@@ -13,6 +13,8 @@ public class EnemyShooting : MonoBehaviour
     bool shootingCooldown;
     public float shootingCooldownDuration = 0.5f;
 
+    public Enemy enemy;
+
     private void Start()
     {
         shootingCooldown = false;
@@ -21,14 +23,26 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        EnemyBullet script = bullet.GetComponent<EnemyBullet>();
+        if (enemy.IsActive == true)
+        {
 
-        script.EnemyShooting = this;
+        if (shootingCooldown == false)
+        {
+            shootingCooldown = true;
+                int shootingCooldownDuration = Random.Range(1, 3);
+                
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            EnemyBullet script = bullet.GetComponent<EnemyBullet>();
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
-        StartCoroutine(ShootingCooldown());
+            script.EnemyShooting = this;
+            print("shooting");
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce( firePoint.up * BulletForce, ForceMode2D.Impulse);
+            print("Enemy" + firePoint.up);
+            StartCoroutine(ShootingCooldown());
+        }
+        }
     }
 
     private IEnumerator ShootingCooldown()

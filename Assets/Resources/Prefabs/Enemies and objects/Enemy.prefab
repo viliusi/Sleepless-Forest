@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  player: {fileID: 0}
   IsActive: 0
 --- !u!61 &5216182459204167780
 BoxCollider2D:
@@ -220,13 +219,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9be98ddcd288f34799a8f6459060037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
+  firePoint: {fileID: 7892397746871309732}
   bulletPrefab: {fileID: 6966578794968023144, guid: 6ed9b41275c2130428b297bde48af72c, type: 3}
-  BulletForce: 20
+  BulletForce: 5
   bulletDamage: 0
   playerStats: {fileID: 0}
-  shootingCooldownDuration: 0.5
-  Enemy: {fileID: 5426102145330756329}
+  shootingCooldownDuration: 1
+  enemy: {fileID: 8066834394363956357}
 --- !u!1001 &5791336239089945126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70789224
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -261,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.7063204
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -273,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -89.873
       objectReference: {fileID: 0}
     - target: {fileID: 6911985852388523733, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_Name

@@ -9,7 +9,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("Created Bullet");   
     }
 
     // Update is called once per frame
@@ -22,11 +22,16 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerTag")
         {
-            /*Weapon weapon = Weapon.GetComponent<Weapon>();
-            int damage = (weapon.bulletDamage);
-            EnemyStats enemystats = collision.gameObject.GetComponent<EnemyStats>();
-            enemystats.health -= damage;
-            Destroy(gameObject);*/
+            GameObject player = collision.gameObject;
+            PlayerStats playerStats = player.GetComponent<PlayerStats>();
+            //Weapon weapon = Weapon.GetComponent<Weapon>();
+            //int damage = (weapon.bulletDamage);
+            StartCoroutine(playerStats.TakeDamage(2, 1));
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
     }

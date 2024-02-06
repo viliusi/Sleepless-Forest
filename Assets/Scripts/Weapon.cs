@@ -40,6 +40,7 @@ public class Weapon : MonoBehaviour
         script.Weapon = this.gameObject;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
+        print("Player: " + firePoint.up);
         StartCoroutine(ShootingCooldown());
     }
 

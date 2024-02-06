@@ -6,13 +6,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public Transform player;
+    private Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public bool IsActive = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
 
