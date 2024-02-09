@@ -311,6 +311,6 @@ public class MapManager : MonoBehaviour
 
         crawler();
 
-        Player.transform.position = new Vector3(48, 7, -1);
+        Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
     }
 }
