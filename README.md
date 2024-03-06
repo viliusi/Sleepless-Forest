@@ -1,3 +1,17 @@
+# Sleepless Forest
+
+## Flow-diagram
+
+## Dokumentation
+
+**Spiller**
+
+Spilleren er opsat som et game object, der instantierer forskellige scripts. Spilleren har en Rigidbody 2D or Box Collider 2D, så den påvirkes af Unitys fysik og kan kollidere med andre objekter, f.eks. spillets vægge eller fjenderne. Spilleren er også tilknyttet et Weapon object med et tilsat Firepoint, som tillader spilleren at skyde efter fjenderne. Dette Weapon object instantierer bullets baseret på en prefab og skyder dem ud fra det tilsatte Firepoint. Derudover har spilleren et Player Movement script, som tillader den at bevæge sig, et Player Camera, som sørger for at kameraet bevæger sig sammen med spilleren, og et Player Stats script, som gør at spilleren kan tage skade og kan dø. 
+
+**Fjender**
+
+Fjender har, ligesom spilleren, et Enemy Stats script, der holder styr på deres health points og gør, at de kan tage skade og dø. Fjenderne er opsat som et prefab, så de kan instantieres flere gange ud fra et enkelt game object. Denne prefab benytter samme system som spilleren til at instantiere bullets, som den kan skyde med ud fra et Firepoint. 
+
 # Sleepless-Forest
 Examproject Programming
 
