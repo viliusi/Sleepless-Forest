@@ -12063,7 +12063,7 @@ MonoBehaviour:
   maxHealth: 10
   damagePossible: 1
   insomnia: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 127584562}
 --- !u!114 &1323478022
 MonoBehaviour:
   m_ObjectHideFlags: 0
