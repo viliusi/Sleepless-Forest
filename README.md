@@ -18,6 +18,10 @@ Enemies har, ligesom spilleren, et stats script (kaldt Enemy Stats), der holder 
 
 Poison enemies angriber spilleren når dens hitbox støder ind i spillerens hitbox, ligesom de normale fjender, men poison enemies er anderledes i at de bruger en for-loop til at give skade over tid, hvilket gør at det ligner at de forgifter spilleren.
 
+**Map Manager**
+
+Mappet er autogeneret ved hjælp af et script, "MapManager.cs". Dette script har som mål at opstille verdenen når spilleren starter spillet. Selve metoden for dette er opbygget af flere skridt. Første del er at definere størrelsen på mappet. Anden skridt er at køre igennem alle fleterne på det, og at se hvor mange vægge der skal være, dette er gjort igennem en vægtet tilfældighed, hvilket betyder at det er cirka 50% for en dør i et rum, 40% for 2 døre og 10% for tre. Dette bliver gemt i arrays og bliver brugt til at bygge mappet ud fra. Hvilket er tredje skridt, at bygge væggene, den kører igennem alle de positioner hvor der kan være en væg og pladser enten en åben eller lukket væg, i forhold til hvad metoden i anden skridt har defineret. Fjerde skridt er så at bygge selve grundene og objekterne, disse opstillese fra prefabs og vælges også tilfældig, med den eneste regel af at der hvor spilleren starter og skal slutte, skal være et specifik slags felt.
+Oven på dette har filen også en metode for at genstarte mappet, ved at trykke på "R", dette kan bruges til at teste kortet, men vil i fremtiden kunne køres af spillet når et nyt niveau bliver nået.
 
 ## Tidsplan
 
