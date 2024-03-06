@@ -9,11 +9,12 @@ TagManager:
   - PlayerTag
   - EnemyTag
   - TrapTag
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - VisualEffects
   - Water
   - UI
   - MeleeWeapon
