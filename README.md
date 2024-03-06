@@ -2,6 +2,8 @@
 
 ## Flow-diagram
 
+![SleeplessForest.svg](Docs/SleeplessForest.svg)
+
 ## Dokumentation
 
 **Spiller**
