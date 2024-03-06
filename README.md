@@ -13,6 +13,7 @@ Spilleren er opsat som et game object, der instantierer forskellige scripts. Spi
 Enemies har, ligesom spilleren, et stats script (kaldt Enemy Stats), der holder styr på deres health points og gør, at de kan tage skade og dø. Enemies er opsat som et prefab, så de kan instantieres flere gange ud fra et enkelt game object. Denne prefab benytter samme system som spilleren til at instantiere bullets, som den kan skyde med ud fra et Firepoint. Denne skydefunktion virker med at fjenden også har en firepoint som skyder sin egne prefab skud der kun kan skade spilleren. 
 
 **Poison enemy**
+
 Poison enemies angriber spilleren når dens hitbox støder ind i spillerens hitbox, ligesom de normale fjender, men poison enemies er anderledes i at de bruger en for-loop til at give skade over tid, hvilket gør at det ligner at de forgifter spilleren.
 
 
