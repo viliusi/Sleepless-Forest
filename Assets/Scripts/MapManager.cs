@@ -29,6 +29,10 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         setUp();
+
+        crawler();
+
+        Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
     }
 
     private void setUp()
