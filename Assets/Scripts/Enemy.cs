@@ -29,15 +29,10 @@ public class Enemy : MonoBehaviour
             rb.rotation = angle;
             direction.Normalize();
             movement = direction;
-        }
-    }
-    private void FixedUpdate()
-    {
-        if (IsActive == true)
-        {
             StartCoroutine(MoveEnemy(movement));
         }
     }
+ 
 
     IEnumerator MoveEnemy(Vector2 direction)
     {
