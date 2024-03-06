@@ -28,8 +28,7 @@ public class EnemyShooting : MonoBehaviour
 
         if (shootingCooldown == false)
         {
-            shootingCooldown = true;
-                int shootingCooldownDuration = Random.Range(1, 3);
+            shootingCooldown = true;    
                 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             EnemyBullet script = bullet.GetComponent<EnemyBullet>();
