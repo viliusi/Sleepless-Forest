@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				_lastMovement = Vector3.left * Time.deltaTime * Speed;
 				transform.Translate(_lastMovement);
+
 			}
 
 			//Dodge function, space 

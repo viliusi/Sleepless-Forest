@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
     public bool damagePossible;
-    public float insomnia;
+    public PlayerInsomnia playerInsomnia; 
     public Image healthBar;
 
     // Start is called before the first frame update
@@ -29,8 +29,9 @@ public class PlayerStats : MonoBehaviour
             {
             for (int i = duration; i > 0; i--)
             {
-                health -= amount;
-                healthBar.fillAmount = health / 10;
+                health -= (amount + (amount * playerInsomnia.insomnia));
+                healthBar.fillAmount = health / 100;
+                print("health is now " + health);
                 yield return new WaitForSeconds(1f);
                 if (health <= 0)
                 {
