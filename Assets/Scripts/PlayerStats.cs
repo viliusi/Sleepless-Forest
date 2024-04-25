@@ -25,8 +25,8 @@ public class PlayerStats : MonoBehaviour
     //amount being damage to be dealt; duration being the number of times this occurs
     public IEnumerator TakeDamage(int amount, int duration)
     {
-        if(damagePossible == true)
-            {
+        if (damagePossible == true)
+        {
             for (int i = duration; i > 0; i--)
             {
                 health -= amount;
@@ -39,8 +39,17 @@ public class PlayerStats : MonoBehaviour
                 else
                 {
                 }
-        }
+            }
 
+        }
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "EndTrigger")
+        {
+            print("triggered");
+        }
     }
 }
+
