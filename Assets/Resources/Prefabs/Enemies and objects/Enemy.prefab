@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  damage: 2
+  damage: 20
   duration: 1
   player: {fileID: 0}
 --- !u!114 &3622717634764615791
@@ -222,9 +222,9 @@ MonoBehaviour:
   firePoint: {fileID: 7892397746871309732}
   bulletPrefab: {fileID: 6966578794968023144, guid: 6ed9b41275c2130428b297bde48af72c, type: 3}
   BulletForce: 5
-  bulletDamage: 0
+  bulletDamage: 10
   playerStats: {fileID: 0}
-  shootingCooldownDuration: 1
+  shootingCooldownDuration: 4
   enemy: {fileID: 8066834394363956357}
 --- !u!1001 &5791336239089945126
 PrefabInstance:

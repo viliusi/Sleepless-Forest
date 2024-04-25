@@ -7,7 +7,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    public float BulletForce = 20f;
+    public int BulletForce = 20;
     public int bulletDamage;
     public PlayerStats playerStats;
     bool shootingCooldown;

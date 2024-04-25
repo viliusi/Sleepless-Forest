@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour
             {
                 health -= (amount + (amount * playerInsomnia.insomnia));
                 healthBar.fillAmount = health / 100;
-                print("health is now " + health);
+                print("health is now " + health + "damage taken" + amount);
                 yield return new WaitForSeconds(1f);
                 if (health <= 0)
                 {

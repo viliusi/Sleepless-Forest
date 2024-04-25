@@ -11929,6 +11929,7 @@ GameObject:
   - component: {fileID: 1323478022}
   - component: {fileID: 1323478024}
   - component: {fileID: 1323478023}
+  - component: {fileID: 1323478025}
   m_Layer: 0
   m_Name: Player
   m_TagString: PlayerTag
@@ -12059,10 +12060,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2cf63597f194409367285b038112a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   damagePossible: 1
-  insomnia: 0
+  playerInsomnia: {fileID: 1323478025}
   healthBar: {fileID: 127584562}
 --- !u!114 &1323478022
 MonoBehaviour:
@@ -12152,6 +12153,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1323478025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323478015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34792161caa72b42b74b8d2dda4bd61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insomnia: 0
 --- !u!114 &1326811238
 MonoBehaviour:
   m_ObjectHideFlags: 0
