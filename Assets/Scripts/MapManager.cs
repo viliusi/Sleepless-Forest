@@ -25,6 +25,8 @@ public class MapManager : MonoBehaviour
 
     public GameObject Player;
 
+    public int NightCount = 1;
+
     // Start is called before the first frame update
     void Start()
     {

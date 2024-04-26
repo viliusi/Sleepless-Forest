@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public bool damagePossible;
     public float insomnia;
     public Image healthBar;
+    public Image SleepPrompt;
+    public Image CampfirePrompt;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,19 @@ public class PlayerStats : MonoBehaviour
     {
         if (other.gameObject.tag == "EndTrigger")
         {
-            print("triggered");
+            // unhide the campfire and sleep prompts
+
+            print("entered");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EndTrigger")
+        {
+            // hide campfire and sleep prompts and their texts
+
+            print("exited");
         }
     }
 }
