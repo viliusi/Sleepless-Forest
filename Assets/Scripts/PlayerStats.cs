@@ -43,4 +43,13 @@ public class PlayerStats : MonoBehaviour
 
     }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "HealingTag")
+        {
+            print("Potion collected");
+            Destroy(other.transform.gameObject);
+        }
+    }
 }
