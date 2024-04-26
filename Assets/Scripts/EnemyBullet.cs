@@ -24,8 +24,6 @@ public class EnemyBullet : MonoBehaviour
         {
             GameObject player = collision.gameObject;
             PlayerStats playerStats = player.GetComponent<PlayerStats>();
-            //Weapon weapon = Weapon.GetComponent<Weapon>();
-            //int damage = (weapon.bulletDamage);
             StartCoroutine(playerStats.TakeDamage(EnemyShooting.bulletDamage, 1));
             Destroy(gameObject);
         }

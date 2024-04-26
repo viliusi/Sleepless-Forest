@@ -1974,7 +1974,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6966578794968023144, guid: dbdc17ccc9fe00f4b974a893e531dabb, type: 3}
   Player: {fileID: 1323478020}
   BulletForce: 20
-  bulletDamage: 5
+  bulletDamage: 20
   enemyStats: {fileID: 0}
   shootingCooldownDuration: 0.5
 --- !u!114 &225715419
