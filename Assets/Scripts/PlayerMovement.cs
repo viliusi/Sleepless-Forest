@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
 	public float Speed;
 	public float DodgeMultiplier;
 	public Image staminaStatus;
+	private SpriteRenderer spriteRenderer;
 
 
 	private Rigidbody2D _rb;
 	private Vector3 _lastMovement;
+	private Animator animator;
 
 	private bool _coolDown;
 
@@ -32,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 		_movementPossible = true;
 		rend.enabled = true;
 		staminaStatus.color = Color.green;
+		animator = GetComponent<Animator>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
     void Update()
@@ -54,12 +58,14 @@ public class PlayerMovement : MonoBehaviour
 
 			if (Input.GetKey(KeyCode.D))
 			{
+				spriteRenderer.flipX = false;
 				_lastMovement = Vector3.right * Time.deltaTime * Speed;
 				transform.Translate(_lastMovement);
 			}
 
 			if (Input.GetKey(KeyCode.A))
 			{
+				spriteRenderer.flipX = true;
 				_lastMovement = Vector3.left * Time.deltaTime * Speed;
 				transform.Translate(_lastMovement);
 
