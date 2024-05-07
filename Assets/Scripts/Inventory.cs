@@ -6,28 +6,19 @@ using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-    public int numberofhealing;
-    public int numberofspeed;
+    public int numberOfHealing;
+    public int numberOfSpeed;
     public int numberofdamage;
     public int special;
+    public TextMeshProUGUI healingNumberText;
 
-    public UnityEvent<Inventory> OnHealingCollected;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
+        numberOfHealing = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void HealingCollected()
-    {
-        numberofhealing++;
-        OnHealingCollected.Invoke(this);
+    private void Update()
+    { 
+        healingNumberText.text = numberOfHealing.ToString();
     }
 }

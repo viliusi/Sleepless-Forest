@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerStats : MonoBehaviour
     public bool damagePossible;
     public float insomnia;
     public Image healthBar;
+    public TextMeshProUGUI healingNumberText;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,10 @@ public class PlayerStats : MonoBehaviour
 
 
     // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     //amount being damage to be dealt; duration being the number of times this occurs
     public IEnumerator TakeDamage(int amount, int duration)
@@ -48,7 +55,9 @@ public class PlayerStats : MonoBehaviour
     {
         if (other.gameObject.tag == "HealingTag")
         {
-            print("Potion collected");
+            print("Healing Potion collected!");  
+            inventory.numberOfHealing++;
+            inventory.healingNumberText.text = inventory.healingNumberText.ToString();
             Destroy(other.transform.gameObject);
         }
     }
