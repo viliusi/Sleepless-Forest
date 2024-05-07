@@ -73,6 +73,24 @@ public class PlayerMovement : MonoBehaviour
 				staminaStatus.color = Color.black;
 				StartCoroutine(Cooldown());
 			}
+
+			// f to stay by the campfire, 20% heal, but insomnia goes up by 10%
+			if (Input.GetKey(KeyCode.F))
+			{
+				if (playerStats.CanProgress == true)
+				{
+					print("campfire");
+				}
+			}
+			
+			// g to sleep, decrease insomnia by 20%
+			if (Input.GetKey(KeyCode.G))
+			{
+				if (playerStats.CanProgress == true)
+				{
+					print("sleep");
+				}
+			}
 		}
 	}
 

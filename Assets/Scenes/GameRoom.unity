@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 68748480}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2230,7 +2230,7 @@ GameObject:
   - component: {fileID: 315520889}
   m_Layer: 5
   m_Name: SleepPrompt
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4436,7 +4436,7 @@ GameObject:
   - component: {fileID: 502379710}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9255,7 +9255,7 @@ GameObject:
   - component: {fileID: 782908644}
   m_Layer: 5
   m_Name: CampFirePrompt
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10906,7 +10906,7 @@ GameObject:
   - component: {fileID: 1084311399}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12628,8 +12628,8 @@ MonoBehaviour:
   damagePossible: 1
   insomnia: 0
   healthBar: {fileID: 127584562}
-  SleepPrompt: {fileID: 0}
-  CampfirePrompt: {fileID: 0}
+  EndPrompts: []
+  EndText: []
 --- !u!114 &1323478022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16202,7 +16202,7 @@ GameObject:
   - component: {fileID: 1677672898}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16339,7 +16339,7 @@ GameObject:
   - component: {fileID: 1680466138}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16888,7 +16888,7 @@ GameObject:
   - component: {fileID: 1841884132}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: EndUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
