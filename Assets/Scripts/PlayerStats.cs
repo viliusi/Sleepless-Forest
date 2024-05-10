@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //amount being damage to be dealt; duration being the number of times this occurs
@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     }
     }
-
+    // When colliding with potions
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "HealingTag")
@@ -58,6 +58,22 @@ public class PlayerStats : MonoBehaviour
             print("Healing Potion collected!");  
             inventory.numberOfHealing++;
             inventory.healingNumberText.text = inventory.healingNumberText.ToString();
+            Destroy(other.transform.gameObject);
+        }
+
+        if (other.gameObject.tag == "SpeedTag")
+        {
+            print("Speed Potion collected!");
+            inventory.numberOfSpeed++;
+            inventory.speedNumberText.text = inventory.speedNumberText.ToString();
+            Destroy(other.transform.gameObject);
+        }
+
+        if (other.gameObject.tag == "DamageTag")
+        {
+            print("Damage Potion collected!");
+            inventory.numberOfDamage++;
+            inventory.damageNumberText.text = inventory.damageNumberText.ToString();
             Destroy(other.transform.gameObject);
         }
     }

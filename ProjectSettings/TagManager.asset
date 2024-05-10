@@ -9,6 +9,9 @@ TagManager:
   - PlayerTag
   - EnemyTag
   - TrapTag
+  - HealingTag
+  - SpeedTag
+  - DamageTag
   layers:
   - Default
   - TransparentFX
