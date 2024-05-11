@@ -713,11 +713,20 @@ MonoBehaviour:
   numberOfHealing: 0
   numberOfSpeed: 0
   numberOfDamage: 0
-  special: 0
   healingNumberText: {fileID: 347416954}
   speedNumberText: {fileID: 602991992}
   damageNumberText: {fileID: 1698523432}
-  PotionActive: 0
+  SpeedActive: 0
+  DamageActive: 0
+  SpeedDuration: 0
+  DamageDuration: 0
+  HealingPossible: 0
+  HAmount: 0
+  duration: 0
+  playerMovement: {fileID: 0}
+  bulletDamage: {fileID: 0}
+  playerStats: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &347416958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,7 +744,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  healingNumberText: {fileID: 347416954}
   inventory: {fileID: 1323478023}
 --- !u!1 &393169519
 GameObject:
@@ -1115,11 +1123,20 @@ MonoBehaviour:
   numberOfHealing: 0
   numberOfSpeed: 0
   numberOfDamage: 0
-  special: 0
   healingNumberText: {fileID: 347416954}
   speedNumberText: {fileID: 602991992}
   damageNumberText: {fileID: 1698523432}
-  PotionActive: 0
+  SpeedActive: 0
+  DamageActive: 0
+  SpeedDuration: 0
+  DamageDuration: 0
+  HealingPossible: 0
+  HAmount: 0
+  duration: 0
+  playerMovement: {fileID: 0}
+  bulletDamage: {fileID: 0}
+  playerStats: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1001 &618213262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,7 +1545,6 @@ MonoBehaviour:
   damagePossible: 1
   insomnia: 0
   healthBar: {fileID: 127584562}
-  healingNumberText: {fileID: 347416954}
   inventory: {fileID: 1323478023}
 --- !u!114 &1323478022
 MonoBehaviour:
@@ -1560,11 +1576,20 @@ MonoBehaviour:
   numberOfHealing: 0
   numberOfSpeed: 0
   numberOfDamage: 0
-  special: 0
   healingNumberText: {fileID: 347416954}
   speedNumberText: {fileID: 602991992}
   damageNumberText: {fileID: 1698523432}
-  PotionActive: 0
+  SpeedActive: 0
+  DamageActive: 0
+  SpeedDuration: 10
+  DamageDuration: 10
+  HealingPossible: 0
+  HAmount: 2
+  duration: 1
+  playerMovement: {fileID: 1323478016}
+  bulletDamage: {fileID: 188021187}
+  playerStats: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &1323478024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,11 +1800,20 @@ MonoBehaviour:
   numberOfHealing: 0
   numberOfSpeed: 0
   numberOfDamage: 0
-  special: 0
   healingNumberText: {fileID: 347416954}
   speedNumberText: {fileID: 602991992}
   damageNumberText: {fileID: 1698523432}
-  PotionActive: 0
+  SpeedActive: 0
+  DamageActive: 0
+  SpeedDuration: 0
+  DamageDuration: 0
+  HealingPossible: 0
+  HAmount: 0
+  duration: 0
+  playerMovement: {fileID: 0}
+  bulletDamage: {fileID: 0}
+  playerStats: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!222 &1698523434
 CanvasRenderer:
   m_ObjectHideFlags: 0

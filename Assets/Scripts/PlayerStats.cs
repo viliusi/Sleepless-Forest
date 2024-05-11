@@ -11,8 +11,7 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth;
     public bool damagePossible;
     public float insomnia;
-    public Image healthBar;
-    public TextMeshProUGUI healingNumberText;
+    public Image healthBar; 
     public Inventory inventory;
 
     // Start is called before the first frame update
