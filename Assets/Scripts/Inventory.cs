@@ -50,7 +50,6 @@ public class Inventory : MonoBehaviour
         numberOfDamage = 0;
         
         HealingPossible = true;
-        playerStats.health = playerStats.maxHealth;
 
         SpeedActive = true;
         DamageActive = true;
