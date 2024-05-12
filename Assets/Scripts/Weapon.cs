@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public Transform Player;
 
     public float BulletForce = 20f;
-    public int bulletDamage;
+    public float bulletDamage;
     public EnemyStats enemyStats;
     bool shootingCooldown;
     public float shootingCooldownDuration = 0.5f;

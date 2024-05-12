@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int health;
-    public int maxHealth = 10;
+    public float health;
+    public float maxHealth = 10;
     public PlayerStats playerStats;
     public GameObject player;
 

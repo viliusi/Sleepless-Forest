@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
     public bool damagePossible;
+    public float damageMultiplier;
     public Image healthBar;
     public float insomnia;
     public int nightEssence;
