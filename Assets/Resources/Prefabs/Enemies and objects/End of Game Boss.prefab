@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 6180579198627506965}
   - component: {fileID: -3171046695759638046}
   - component: {fileID: 1215688185729239078}
-  - component: {fileID: -3772663654601876578}
+  - component: {fileID: 8021051514173338053}
   m_Layer: 0
   m_Name: End of Game Boss
-  m_TagString: Untagged
+  m_TagString: EnemyTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5865e835496f83b4d96c741c89936e21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45fe0c3c883ca741be8bc7fcc65c06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 0
   IsActive: 0
 --- !u!61 &1215688185729239078
 BoxCollider2D:
@@ -207,7 +207,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-3772663654601876578
+--- !u!114 &8021051514173338053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,16 +216,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4798502930723956902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9be98ddcd288f34799a8f6459060037, type: 3}
+  m_Script: {fileID: 11500000, guid: 09d928405ba0c5e4a87461476a851fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 6178391977834773995}
+  bulletPrefab: {fileID: 6966578794968023144, guid: 6ed9b41275c2130428b297bde48af72c, type: 3}
   BulletForce: 5
   bulletDamage: 0
   playerStats: {fileID: 0}
-  shootingCooldownDuration: 1
-  enemy: {fileID: 0}
+  shootingCooldownDuration: 0.5
+  enemy: {fileID: -3171046695759638046}
+  burstDuration: 0
 --- !u!1001 &7523147229383680617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4456760772564230018, guid: 775c5d303b5c06a4db0cede6a486223d, type: 3}
       propertyPath: m_LocalPosition.y

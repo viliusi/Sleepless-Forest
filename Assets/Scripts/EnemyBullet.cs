@@ -6,6 +6,8 @@ public class EnemyBullet : MonoBehaviour
 {
     public EnemyShooting EnemyShooting;
 
+    public BossShooting BossShooting;
+
     // Start is called before the first frame update
     void Start()
     {
