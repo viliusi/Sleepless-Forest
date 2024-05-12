@@ -25,7 +25,6 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(gameObject);
             playerStats.nightEssence += 1 + ((int)playerStats.insomnia * 10);
-            print(playerStats.nightEssence);
             playerStats.nightEssenceText.text = playerStats.nightEssence.ToString();
         }
     }

@@ -13,7 +13,7 @@ public class AltarShop : MonoBehaviour
     public TMP_Text priceDamageText;
     public int priceHealth;
     public int priceDamage;
-
+    public TMP_Text damageMultiplierText;
 
     public void Shop()
     {
@@ -24,13 +24,35 @@ public class AltarShop : MonoBehaviour
 
     }
 
-    public void buyUpgrade()
+    public void buyHealthUpgrade()
     {
-        if(playerStats.nightEssence == priceDamage || playerStats.nightEssence > priceDamage)
+        if (playerStats.nightEssence >= priceHealth)
+        {
+            playerStats.nightEssence -= priceHealth;
+            playerStats.health += ((playerStats.maxHealth / 100) * 20);
+            playerStats.maxHealth += ((playerStats.maxHealth / 100)*20);
+            playerStats.nightEssenceText.text = playerStats.nightEssence.ToString();
+            playerStats.healthBar.fillAmount = playerStats.health / playerStats.maxHealth;
+            playerStats.healthValuesText.text = playerStats.health.ToString() + "/" + playerStats.maxHealth.ToString();
+            priceHealth *= 2;
+            priceHealthText.text = priceHealth.ToString();
+        }
+        else
+        {
+            print("not enough essence");
+        }
+    }
+
+    public void buyDamageUpgrade()
+    {
+        if(playerStats.nightEssence >= priceDamage)
         {
             playerStats.nightEssence -= priceDamage;
             playerStats.damageMultiplier += 0.2f;
-            print("damage multiplier now" + playerStats.damageMultiplier);
+            playerStats.nightEssenceText.text = playerStats.nightEssence.ToString();
+            damageMultiplierText.text = "x" + playerStats.damageMultiplier.ToString();
+            priceDamage *= 2;
+            priceDamageText.text = priceDamage.ToString();
         }
         else
         {

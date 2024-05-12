@@ -12,6 +12,9 @@ public class PlayerStats : MonoBehaviour
     public bool damagePossible;
     public float damageMultiplier;
     public Image healthBar;
+    public TMP_Text healthValuesText;
+    public Animator animator;
+    bool healthValuesOn;
     public float insomnia;
     public int nightEssence;
     public TextMeshProUGUI nightEssenceText;
@@ -22,6 +25,7 @@ public class PlayerStats : MonoBehaviour
         health = maxHealth;
         damagePossible = true;
         insomnia = 0;
+        healthValuesOn = true;
     }
 
     private void Update()
@@ -30,6 +34,19 @@ public class PlayerStats : MonoBehaviour
         {
             insomnia += 0.1f;
             print("Insomnia is" + insomnia);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (healthValuesOn == true) {
+                animator.SetTrigger("turnOff");
+                healthValuesOn = false;
+            }
+            else
+            {
+                animator.SetTrigger("turnOn");
+                healthValuesOn = true;
+            }
         }
     }
 
@@ -43,8 +60,8 @@ public class PlayerStats : MonoBehaviour
             for (int i = duration; i > 0; i--)
             {
                 health -= (amount + (amount * insomnia));
-                healthBar.fillAmount = health / 100;
-                print("health is now " + health);
+                healthBar.fillAmount = health / maxHealth;
+                healthValuesText.text = health.ToString() + "/" + maxHealth.ToString();
                 yield return new WaitForSeconds(1f);
 
                 if (health <= 0)
