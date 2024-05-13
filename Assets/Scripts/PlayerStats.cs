@@ -15,13 +15,14 @@ public class PlayerStats : MonoBehaviour
     public Image[] EndPrompts;
     public TextMeshProUGUI[] EndTexts;
     public bool CanProgress;
+    public MapManager mapManager;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         damagePossible = true;
-        CanProgress = true;
+        CanProgress = false;
 
         GameObject canvas = GameObject.Find("Canvas");
 

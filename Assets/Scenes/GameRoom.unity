@@ -2183,6 +2183,7 @@ MonoBehaviour:
   - {fileID: 9107706154285160828, guid: 3e8954d4c6527624397a1d0ac0a88753, type: 3}
   - {fileID: 9107706154285160828, guid: 5b1619d43024c7e4aa21e668ee875c74, type: 3}
   - {fileID: 1244976840205864156, guid: 48f2e72f9a8d41242a8361ded857b4c1, type: 3}
+  - {fileID: 1244976840205864156, guid: 48f2e72f9a8d41242a8361ded857b4c1, type: 3}
   - {fileID: 1244976840205864156, guid: 09ffaa3dfddb53043b8deff8271e27e3, type: 3}
   - {fileID: 1244976840205864156, guid: a4e3cfa5c22edab4bb586f2d20aeae97, type: 3}
   - {fileID: 1244976840205864156, guid: 26dcccc0fee0a3e4bbbd039d65e8dff3, type: 3}
@@ -12629,7 +12630,9 @@ MonoBehaviour:
   insomnia: 0
   healthBar: {fileID: 127584562}
   EndPrompts: []
-  EndText: []
+  EndTexts: []
+  CanProgress: 0
+  mapManager: {fileID: 315143904}
 --- !u!114 &1323478022
 MonoBehaviour:
   m_ObjectHideFlags: 0

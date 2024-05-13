@@ -40,6 +40,7 @@ public class MapManager : MonoBehaviour
     private void setUp()
     {
         // set up wall arrays based of height and width
+        Width = Height = NightCount * 2 + 1; // Adjust the size of the map based on the NightCount
         VerticalWalls = new bool[Width + 2, Height + 1];
         HorizontalWalls = new bool[Width + 1, Height + 2];
     }
@@ -49,7 +50,8 @@ public class MapManager : MonoBehaviour
         int endX = PlayerStartWidth;
         int endY = PlayerStartHeight;
 
-        while (endX == PlayerStartWidth && endY == PlayerStartHeight)
+        // Ensure the end room is a bit away from the player spawn
+        while (Mathf.Abs(endX - PlayerStartWidth) < 3 && Mathf.Abs(endY - PlayerStartHeight) < 3)
         {
             endX = Random.Range(0, Width);
             endY = Random.Range(0, Height);
@@ -76,6 +78,12 @@ public class MapManager : MonoBehaviour
                         else
                         {
                             int random = Random.Range(2, Maps.Count);
+
+                            // Higher chance for ground rooms
+                            if (random > 5)
+                            {
+                                random = 2;
+                            }
 
                             GameObject map = Maps[random];
 
