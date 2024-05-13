@@ -11,7 +11,11 @@ public class BossShooting : MonoBehaviour
     public int bulletDamage;
     public PlayerStats playerStats;
     bool shootingCooldown;
-    public float shootingCooldownDuration = 0.5f;
+    bool s2Cooldown;
+    bool burst;
+    public float shootingCooldownDuration;
+    public float s2CooldownDuration;
+    public float burstDuration;
 
     public Enemy enemy;
 
@@ -19,6 +23,8 @@ public class BossShooting : MonoBehaviour
     private void Start()
     {
         shootingCooldown = false;
+        s2Cooldown = false;
+        burst = false;
     }
 
     // Update is called once per frame
@@ -45,9 +51,37 @@ public class BossShooting : MonoBehaviour
 
 
             }
-                
-            
+
+            if (burst == false)
+            {
+                burst = true;
+                StartCoroutine(Burst());
+
+                if (s2Cooldown == false)
+                {
+
+
+                    s2Cooldown = true;
+
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                    EnemyBullet script = bullet.GetComponent<EnemyBullet>();
+
+                    script.BossShooting = this;
+                    print("shooting");
+
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
+                    print("Enemy" + firePoint.up);
+                    StartCoroutine(S2Cooldown());
+
+
+                }
+            }
+
+
         }
+
+
     }
 
     private IEnumerator ShootingCooldown()
@@ -55,7 +89,19 @@ public class BossShooting : MonoBehaviour
         shootingCooldown = true;
         yield return new WaitForSeconds(shootingCooldownDuration);
         shootingCooldown = false;
+    }
 
+    private IEnumerator Burst()
+    {
+        burst = true;
+        yield return new WaitForSeconds(burstDuration);
+        burst = false;
+    }
 
+    private IEnumerator S2Cooldown()
+    {
+        s2Cooldown = true;
+        yield return new WaitForSeconds(s2CooldownDuration);
+        s2Cooldown = false;
     }
 }

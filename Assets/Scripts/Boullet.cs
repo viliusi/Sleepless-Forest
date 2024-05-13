@@ -8,6 +8,7 @@ public class Boullet : MonoBehaviour
 {
     //link "bulletDamage" and EnemyStats to weapon.cs
     public EnemyStats enemyStats;
+    public BossPhase bossPhase;
     public GameObject Weapon;
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -20,6 +21,7 @@ public class Boullet : MonoBehaviour
             enemystats.health -= damage;
             Destroy(gameObject);
         }
+
         else if (collision.gameObject.tag != "PlayerTag")
         {
             Destroy(gameObject);
