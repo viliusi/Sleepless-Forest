@@ -15,6 +15,8 @@ public class EnemyShooting : MonoBehaviour
 
     public Enemy enemy;
 
+    public BossPhase bossPhase;
+
     private void Start()
     {
         shootingCooldown = false;

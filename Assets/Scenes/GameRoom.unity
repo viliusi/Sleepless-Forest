@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 1864672229}
   - component: {fileID: 1864672228}
   m_Layer: 0
-  m_Name: Melee weapon
+  m_Name: Melee Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

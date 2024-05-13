@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public bool IsActive = false;
-    public BossPhase BossPhase;
 
     // Start is called before the first frame update
     void Awake()
