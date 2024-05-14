@@ -5676,7 +5676,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 96f627008918a514ea69a04c8e1a40f4, type: 2}
 --- !u!4 &587903854
 Transform:
   m_ObjectHideFlags: 0
@@ -17195,6 +17195,7 @@ GameObject:
   - component: {fileID: 1889252579}
   - component: {fileID: 1889252581}
   - component: {fileID: 1889252583}
+  - component: {fileID: 1889252584}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17299,11 +17300,11 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
+  m_StopNaN: 1
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_UseScreenCoordOverride: 0
@@ -17319,6 +17320,27 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1889252584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889252578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882dadc427894de40a95c087eeb0c5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 587903853}
+  chromaticAberration: {fileID: 0}
+  vignette: {fileID: 0}
+  lensDistortion: {fileID: 0}
+  filmGrain: {fileID: 0}
+  depthOfField: {fileID: 0}
+  whiteBalance: {fileID: 0}
+  colorAdjustments: {fileID: 0}
+  playerStats: {fileID: 1323478021}
 --- !u!114 &1891935553
 MonoBehaviour:
   m_ObjectHideFlags: 0
