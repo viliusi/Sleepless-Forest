@@ -12,11 +12,12 @@ TagManager:
   - HealingTag
   - SpeedTag
   - DamageTag
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - VisualEffects
   - Water
   - UI
   - MeleeWeapon
