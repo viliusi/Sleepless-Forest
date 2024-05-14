@@ -40,10 +40,6 @@ public class AltarShop : MonoBehaviour
             priceHealth *= 2;
             priceHealthText.text = priceHealth.ToString();
         }
-        else
-        {
-            print("not enough essence");
-        }
     }
 
     public void buyDamageUpgrade()
@@ -56,10 +52,6 @@ public class AltarShop : MonoBehaviour
             damageMultiplierText.text = "x" + playerStats.damageMultiplier.ToString();
             priceDamage *= 2;
             priceDamageText.text = priceDamage.ToString();
-        }
-        else
-        {
-            print("not enough essence");
         }
     }
 
