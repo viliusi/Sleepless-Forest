@@ -9,6 +9,7 @@ public class BossPhase : MonoBehaviour
     private Transform player;
 
     public EnemyStats enemyStats;
+    public MapManager mapManager;
 
     bool spawnCooldown;
     public int spawnCooldownDuration;
@@ -41,9 +42,13 @@ public class BossPhase : MonoBehaviour
             
 
         }
-        // Boss death funktion
+        // Boss death function
         if (enemyStats.health <= 0) 
         {
+            mapManager.NightCount += 1;
+
+            mapManager.Restart();
+
             Destroy(gameObject);
         }
     }
