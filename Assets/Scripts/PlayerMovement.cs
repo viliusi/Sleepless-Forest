@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 		_coolDown = false;
 		_movementPossible = true;
 		rend.enabled = true;
+		rend.sharedMaterial = material[0];
 		staminaStatus.color = Color.green;
 	}
 
@@ -41,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
 			//Basic movement, WASD
 			if (Input.GetKey(KeyCode.W))
 			{
-				//_lastMovement is defined and then used to move the player
 				_lastMovement = Vector3.up * Time.deltaTime * Speed;
 				transform.Translate(_lastMovement);
 			}
@@ -67,23 +67,27 @@ public class PlayerMovement : MonoBehaviour
 			//Dodge function, space 
 			if (Input.GetKey(KeyCode.Space) && _coolDown == false)
 			{
-				//_lastMovement is used to allow for dodging in the same
-				//direction as the latest movement
 				transform.Translate(_lastMovement * DodgeMultiplier);
 				staminaStatus.color = Color.black;
+				StartCoroutine(DodgeInvincibility());
 				StartCoroutine(Cooldown());
 			}
 		}
 	}
-
 	private IEnumerator Cooldown()
 	{
-		//Effects of cooldown
 		yield return new WaitForSeconds(0.1f);
 		_coolDown = true;
 		yield return new WaitForSeconds(2);
 		_coolDown = false;
 		staminaStatus.color = Color.green;
+	}
+
+	private IEnumerator DodgeInvincibility()
+    {
+		playerStats.damagePossible = false;
+		yield return new WaitForSeconds(1f);
+		playerStats.damagePossible = true;
 	}
 
     private IEnumerator Stun(Collider2D bearTrap)

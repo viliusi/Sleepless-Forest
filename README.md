@@ -1,27 +1,5 @@
-# Sleepless Forest
-
-## Flow-diagram
-
-![SleeplessForest.svg](Docs/SleeplessForest.svg)
-
-## Dokumentation
-
-**Spiller**
-
-Spilleren er opsat som et game object, der instantierer forskellige scripts. Spilleren har en Rigidbody 2D or Box Collider 2D, så den påvirkes af Unitys fysik og kan kollidere med andre objekter, f.eks. spillets vægge eller fjenderne. Spilleren er også tilknyttet et Weapon object med et tilsat Firepoint, som tillader spilleren at skyde efter fjenderne. Dette Weapon object instantierer bullets baseret på en prefab og skyder dem ud fra det tilsatte Firepoint. Derudover har spilleren et Player Movement script, som tillader den at bevæge sig, et Player Camera, som sørger for at kameraet bevæger sig sammen med spilleren, og et Player Stats script, som gør at spilleren kan tage skade og kan dø. 
-
-**Enemies**
-
-Enemies har, ligesom spilleren, et stats script (kaldt Enemy Stats), der holder styr på deres health points og gør, at de kan tage skade og dø. Enemies er opsat som et prefab, så de kan instantieres flere gange ud fra et enkelt game object. Denne prefab benytter samme system som spilleren til at instantiere bullets, som den kan skyde med ud fra et Firepoint. Denne skydefunktion virker med at fjenden også har en firepoint som skyder sin egne prefab skud der kun kan skade spilleren. 
-
-**Poison enemy**
-
-Poison enemies angriber spilleren når dens hitbox støder ind i spillerens hitbox, ligesom de normale fjender, men poison enemies er anderledes i at de bruger en for-loop til at give skade over tid, hvilket gør at det ligner at de forgifter spilleren.
-
-**Map Manager**
-
-Mappet er autogeneret ved hjælp af et script, "MapManager.cs". Dette script har som mål at opstille verdenen når spilleren starter spillet. Selve metoden for dette er opbygget af flere skridt. Første del er at definere størrelsen på mappet. Anden skridt er at køre igennem alle felterne på det og se, hvor mange vægge der skal være. Dette er gjort igennem en vægtet tilfældighed, hvilket betyder at det er cirka 50% for en dør i et rum, 40% for 2 døre og 10% for tre. Dette bliver gemt i arrays og bliver brugt til at bygge mappet ud fra. Tredje skridt herefter at bygge væggene: den kører igennem alle de positioner hvor der kan være en væg og placere enten en åben eller lukket væg, i forhold til hvad metoden i anden skridt har defineret. Fjerde skridt er så at bygge selve grundpladerne og objekterne. Disse blev opstillet fra prefabs og vælges også tilfældigt. Den eneste regel er, at der, hvor spilleren starter og skal slutte, skal være et specifik slags felt.
-Oven på dette har filen også en metode for at genstarte mappet. Dette gøres ved at trykke på "R". Funktionen kan bruges til at teste kortet, men vil i fremtiden kunne køres af spillet når et nyt niveau nås.
+# Sleepless-Forest
+Examproject Programming
 
 ## Tidsplan
 

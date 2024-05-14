@@ -5,128 +5,81 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public int Height;
-    public int Width;
-
-    public int PlayerStartHeight;
-    public int PlayerStartWidth;
-
     public List<GameObject> Maps = new List<GameObject>();
     public GameObject HorizontalHedgeClosed;
     public GameObject HorizontalHedgeOpen;
     public GameObject VerticalHedgeClosed;
     public GameObject VerticalHedgeOpen;
 
-    public bool[,] VerticalWalls;
-    public bool[,] HorizontalWalls;
+    public GameObject[,] Screens = new GameObject[6, 6];
+    public bool[,] VerticalWalls = new bool[9, 8];
+    public bool[,] HorizontalWalls = new bool[8, 9];
 
     public List<GameObject> AllWalls = new List<GameObject>();
-    public List<GameObject> AllScreens = new List<GameObject>();
-
-    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        setUp();
-
         crawler();
 
-        Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
-    }
-
-    private void setUp()
-    {
-        // set up wall arrays based of height and width
-        VerticalWalls = new bool[Width + 2, Height + 1];
-        HorizontalWalls = new bool[Width + 1, Height + 2];
-    }
-
-    void build()
-    {
-        int endX = PlayerStartWidth;
-        int endY = PlayerStartHeight;
-
-        while (endX == PlayerStartWidth && endY == PlayerStartHeight)
+        for (int i = 0; i < 7; i++)
         {
-            endX = Random.Range(0, Width);
-            endY = Random.Range(0, Height);
-        }
-
-        AllScreens.Add(Instantiate(Maps[1], new Vector3(endX * 16, endY * 9, 0.01f), Quaternion.identity));
-
-        for (int i = 0; i < Height + 1; i++)
-        {
-            for (int j = 0; j < Width + 1; j++)
+            for (int j = 0; j < 7; j++)
             {
-                if (i == PlayerStartWidth)
+                if (i == 3)
                 {
-                    if (j == PlayerStartHeight)
+                    if (j == 1)
                     {
-                        AllScreens.Add(Instantiate(Maps[0], new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
+                        Instantiate(Maps[0], new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
                     }
                     else
                     {
-                        if (i == endX && j == endY)
-                        {
+                        int random = Random.Range(0, Maps.Count);
 
-                        }
-                        else
-                        {
-                            int random = Random.Range(2, Maps.Count);
+                        GameObject map = Maps[random];
 
-                            GameObject map = Maps[random];
-
-                            AllScreens.Add(Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
-                        }
+                        Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
                     }
                 }
                 else
                 {
-                    if (i == endX && j == endY)
-                    {
+                    int random = Random.Range(0, Maps.Count);
 
-                    }
-                    else
-                    {
-                        int random = Random.Range(2, Maps.Count);
+                    GameObject map = Maps[random];
 
-                        GameObject map = Maps[random];
-
-                        AllScreens.Add(Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
-                    }
+                    Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity);
                 }
             }
         }
 
-        for (int i = 0; i < Width + 1; i++)
+        for (int i = 0; i < 7; i++)
         {
-            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3(-7.5f, i * 9, 0), Quaternion.identity));
+            Instantiate(HorizontalHedgeClosed, new Vector3(-7.5f, i * 9, 0), Quaternion.identity);
         }
 
-        for (int i = 0; i < Width + 1; i++)
+        for (int i = 0; i < 7; i++)
         {
-            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3((Width * 16) + 7.5f, i * 9, 0), Quaternion.identity));
+            Instantiate(HorizontalHedgeClosed, new Vector3(103.5f, i * 9, 0), Quaternion.identity);
         }
 
-        for (int i = 0; i < Height + 1; i++)
+        for (int i = 0; i < 7; i++)
         {
-            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, -4, 0), Quaternion.identity));
+            Instantiate(VerticalHedgeClosed, new Vector3(i * 16, -4, 0), Quaternion.identity);
         }
 
-        for (int i = 0; i < Height + 1; i++)
+        for (int i = 0; i < 7; i++)
         {
-            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, (Height * 9) + 4, 0), Quaternion.identity));
+            Instantiate(VerticalHedgeClosed, new Vector3(i * 16, 58, 0), Quaternion.identity);
         }
     }
 
     void crawler()
     {
-        Vector2 room = new Vector2(PlayerStartWidth, PlayerStartHeight);
+        Vector2 room = new Vector2(3, 1);
 
-        for (int i = 0; i < Width; i++)
+        for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < Height; j++)
+            for (int j = 0; j < 7; j++)
             {
                 room = new Vector2(i, j);
 
@@ -139,8 +92,6 @@ public class MapManager : MonoBehaviour
         }
 
         buildWalls();
-
-        build();
     }
 
     int chanceTime()
@@ -219,12 +170,9 @@ public class MapManager : MonoBehaviour
 
     void buildWalls()
     {
-        int horizontalWidth = HorizontalWalls.GetLength(0);
-        int horizontalHeight = HorizontalWalls.GetLength(1);
-
-        for (int i = 0; i < horizontalWidth - 1; i++)
+        for (int i = 0; i < 6; i++)
         {
-            for (int j = 0; j < horizontalHeight - 1; j++)
+            for (int j = 0; j < 7; j++)
             {
                 GameObject wall;
 
@@ -243,12 +191,9 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        int verticalWidth = VerticalWalls.GetLength(0);
-        int verticalHeight = VerticalWalls.GetLength(1);
-
-        for (int i = 0; i < verticalWidth - 1; i++)
+        for (int i = 0; i < 7; i++)
         {
-            for (int j = 0; j < verticalHeight - 1; j++)
+            for (int j = 0; j < 6; j++)
             {
                 GameObject wall;
 
@@ -271,50 +216,32 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
+        if(Input.GetKey(KeyCode.R))
         {
-            Restart();
-        }
-    }
-
-    public void Restart()
-    {
-        int horizontalWidth = HorizontalWalls.GetLength(0);
-        int horizontalHeight = HorizontalWalls.GetLength(1);
-
-        for (int i = 0; i < horizontalWidth - 1; i++)
-        {
-            for (int j = 0; j < horizontalHeight - 1; j++)
+            for (int i = 0; i < 6; i++)
             {
-                HorizontalWalls[i + 1, j + 1] = false;
+                for (int j = 0; j < 7; j++)
+                {
+                    HorizontalWalls[i + 1, j + 1] = false;
+                }
             }
-        }
 
-        int verticalWidth = VerticalWalls.GetLength(0);
-        int verticalHeight = VerticalWalls.GetLength(1);
-
-        for (int i = 0; i < verticalWidth - 1; i++)
-        {
-            for (int j = 0; j < verticalHeight - 1; j++)
+            for (int i = 0; i < 7; i++)
             {
-                VerticalWalls[i + 1, j + 1] = false;
+                for (int j = 0; j < 6; j++)
+                {
+                    VerticalWalls[i + 1, j + 1] = false;
+                }
             }
+
+            foreach (var wall in AllWalls)
+            {
+                Destroy(wall);
+            }
+
+            crawler();
+
+            buildWalls();
         }
-
-        foreach (var wall in AllWalls)
-        {
-            Destroy(wall);
-        }
-
-        foreach (var screen in AllScreens)
-        {
-            Destroy(screen);
-        }
-
-        setUp();
-
-        crawler();
-
-        Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
     }
 }
