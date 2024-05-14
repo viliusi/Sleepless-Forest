@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
 {
 	public PlayerStats playerStats;
 	public Material[] material;
-	public Renderer rend;
 	public float Speed;
 	public float DodgeMultiplier;
 	public Image staminaStatus;
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		_coolDown = false;
 		_movementPossible = true;
-		rend.enabled = true;
 		staminaStatus.color = Color.green;
 	}
 

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    /*
-    private TextMeshProUGUI healingNumber;
+    
+    /*private TextMeshProUGUI healingNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateHealingNumber(Inventory inventory)
     {
-        healingNumber.text = inventory.NumberOfHealing.ToString();
-    }
-    */
+        healingNumber.text = inventory.numberOfHealing.ToString();
+    }*/
+    
 }

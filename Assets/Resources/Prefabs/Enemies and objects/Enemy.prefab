@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: d935b7269d6d2e345bc580d7d76c1058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   IsActive: 0
-  BossPhase: {fileID: 0}
 --- !u!61 &5216182459204167780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,6 +226,7 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   shootingCooldownDuration: 1
   enemy: {fileID: 8066834394363956357}
+  bossPhase: {fileID: 0}
 --- !u!1001 &5791336239089945126
 PrefabInstance:
   m_ObjectHideFlags: 0

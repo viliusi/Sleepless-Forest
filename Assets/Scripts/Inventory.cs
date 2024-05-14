@@ -45,9 +45,9 @@ public class Inventory : MonoBehaviour
     // Beginning value for potions
     private void Start()
     {
-        //numberOfHealing = 0;
-        //numberOfSpeed = 0;
-        //numberOfDamage = 0;
+        numberOfHealing = 0;
+        numberOfSpeed = 0;
+        numberOfDamage = 0;
         
         HealingPossible = true;
 
@@ -60,17 +60,17 @@ public class Inventory : MonoBehaviour
     { 
         
 
-        // Using health potions
-        //if (numberOfHealing > 0)
-        //{
-        //    if (Input.GetKey(KeyCode.Alpha1))
-        //    {
-        //        print("Health potion used!");
-        //        numberOfHealing--;
-        //        //healingNumberText.text = healingNumberText.ToString();
-        //        StartCoroutine(HealEffect(HAmount, Duration));
-        //    }
-        //}
+        
+        if (numberOfHealing > 0)
+        {
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                print("Health potion used!");
+                numberOfHealing--;
+                healingNumberText.text = healingNumberText.ToString();
+                StartCoroutine(HealEffect(HAmount, Duration));
+            }
+        }
 
         // Using speed potions
         if (numberOfSpeed > 0)
