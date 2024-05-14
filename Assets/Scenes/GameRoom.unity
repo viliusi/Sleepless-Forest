@@ -8491,7 +8491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692536978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -23.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12514,6 +12514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 1323478021}
+  mapManager: {fileID: 0}
   material:
   - {fileID: 2100000, guid: 3f6b9a3e70e317f45b3576a516f416e6, type: 2}
   - {fileID: 2100000, guid: e85716953c765aa41b76e4c29f68ad82, type: 2}
@@ -15446,6 +15447,10 @@ PrefabInstance:
     - target: {fileID: 5620363812483554186, guid: af9ba03946b88a44f98eab3106aa7e0c, type: 3}
       propertyPath: m_Tiles.Array.data[57].second.m_TileSpriteIndex
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5628888263040647974, guid: af9ba03946b88a44f98eab3106aa7e0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.6
       objectReference: {fileID: 0}
     - target: {fileID: 7140552293287690370, guid: af9ba03946b88a44f98eab3106aa7e0c, type: 3}
       propertyPath: m_RootOrder

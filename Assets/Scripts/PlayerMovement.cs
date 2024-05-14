@@ -86,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
 					// insomnia goes up by 10%
 					playerStats.insomnia += 10;
+
+					mapManager.Restart();
 				}
 			}
 			
@@ -96,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
 				{
 					mapManager.NightCount += 1;
 					playerStats.insomnia -= 20;
+
+					mapManager.Restart();
 				}
 			}
 		}
