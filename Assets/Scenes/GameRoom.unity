@@ -751,7 +751,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &393169519
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +901,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &466929670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -2631266425342839735, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.92692
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.800476
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848034389584336737, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242023989485268307, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
+      propertyPath: m_Name
+      value: Healing
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c97b870e192667d4c99f2c2875bf2429, type: 3}
 --- !u!1001 &511931445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1166,7 +1226,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &894998206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1440,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1458,7 +1517,6 @@ MonoBehaviour:
   damagePossible: 1
   insomnia: 0
   healthBar: {fileID: 127584562}
-  inventory: {fileID: 1323478023}
 --- !u!114 &1323478022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,7 +1838,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &1848127830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,3 +2471,4 @@ SceneRoots:
   - {fileID: 511931445}
   - {fileID: 1323478020}
   - {fileID: 1001096991}
+  - {fileID: 466929670}

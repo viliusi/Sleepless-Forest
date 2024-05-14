@@ -12,13 +12,15 @@ public class PlayerStats : MonoBehaviour
     public bool damagePossible;
     public float insomnia;
     public Image healthBar; 
-    public Inventory inventory;
+    private Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         damagePossible = true;
+
+        inventory = gameObject.GetComponent<Inventory>();
     }
 
 
@@ -55,9 +57,9 @@ public class PlayerStats : MonoBehaviour
         if (other.gameObject.tag == "HealingTag")
         {
             print("Healing Potion collected!");  
-            inventory.numberOfHealing++;
-            inventory.healingNumberText.text = inventory.healingNumberText.ToString();
-            Destroy(other.transform.gameObject);
+            inventory.numberOfHealing = 20;
+            inventory.healingNumberText.text = inventory.numberOfHealing.ToString();
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "SpeedTag")
