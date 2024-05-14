@@ -527,6 +527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c99a3b045433940b40913d53d9cad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Height: 0
+  Width: 0
+  PlayerStartHeight: 0
+  PlayerStartWidth: 0
   Maps:
   - {fileID: 1244976840205864156, guid: 48f2e72f9a8d41242a8361ded857b4c1, type: 3}
   - {fileID: 1244976840205864156, guid: 09ffaa3dfddb53043b8deff8271e27e3, type: 3}
@@ -543,12 +547,13 @@ MonoBehaviour:
   - {fileID: 1244976840205864156, guid: fcd75b75803a36542b7f61fbf44aaed4, type: 3}
   - {fileID: 1244976840205864156, guid: fcfaea687e551dd41956448c6097fd6b, type: 3}
   - {fileID: 1244976840205864156, guid: 2ccbf3a2a70c0034397f84574f0db31b, type: 3}
-  - {fileID: 1244976840205864156, guid: bbac7ea5ede5f3d4896192a2dcf4bbbb, type: 3}
   HorizontalHedgeClosed: {fileID: 2408670718494231509, guid: 21165d51cfd9563458ef5d2c8ab4e641, type: 3}
   HorizontalHedgeOpen: {fileID: 4077693755464795321, guid: 4cc78245ce28d1e4e9b2469c38069d5f, type: 3}
   VerticalHedgeClosed: {fileID: 3869514392221194385, guid: 63068af5961b1e44d97cb37e80c1b592, type: 3}
   VerticalHedgeOpen: {fileID: 3652648737455308598, guid: 30b8848b1f5381b4e8acdf69da0a70d9, type: 3}
   AllWalls: []
+  AllScreens: []
+  Player: {fileID: 0}
 --- !u!4 &315143905
 Transform:
   m_ObjectHideFlags: 0
@@ -752,7 +757,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &393169519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1098,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &894998206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1269,6 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: 3f6b9a3e70e317f45b3576a516f416e6, type: 2}
   - {fileID: 2100000, guid: e85716953c765aa41b76e4c29f68ad82, type: 2}
-  rend: {fileID: 188021188}
   Speed: 5
   DodgeMultiplier: 2.5
   staminaStatus: {fileID: 1428534940}
@@ -1378,7 +1380,6 @@ MonoBehaviour:
   damagePossible: 1
   insomnia: 0
   healthBar: {fileID: 127584562}
-  inventory: {fileID: 1323478023}
 --- !u!114 &1323478022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1700,7 +1701,6 @@ MonoBehaviour:
   damagePossible: 0
   insomnia: 0
   healthBar: {fileID: 0}
-  inventory: {fileID: 1323478023}
 --- !u!1 &1848127830
 GameObject:
   m_ObjectHideFlags: 0

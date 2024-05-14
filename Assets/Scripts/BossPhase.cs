@@ -9,10 +9,12 @@ public class BossPhase : MonoBehaviour
     private Transform player;
 
     public EnemyStats enemyStats;
+    
     public MapManager mapManager;
 
     bool spawnCooldown;
     public int spawnCooldownDuration;
+    public bool IsActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,10 @@ public class BossPhase : MonoBehaviour
 
                 GameObject enemy = Instantiate(enemyPrefab, firePoint.position, firePoint.rotation);
 
+                Enemy enemyScript = GetComponent<Enemy>();
+
+                enemyScript.IsActive = true;
+
                 StartCoroutine(SpawnCooldown());
             }
             
@@ -45,7 +51,7 @@ public class BossPhase : MonoBehaviour
         // Boss death function
         if (enemyStats.health <= 0) 
         {
-            mapManager.NightCount += 1;
+            // mapManager.NightCount += 1;
 
             mapManager.Restart();
 
