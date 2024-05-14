@@ -9,6 +9,7 @@ TagManager:
   - PlayerTag
   - EnemyTag
   - TrapTag
+  - GameManager
   - HealingTag
   - SpeedTag
   - DamageTag
@@ -16,7 +17,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - VisualEffects
   - Water
   - UI
   - MeleeWeapon
