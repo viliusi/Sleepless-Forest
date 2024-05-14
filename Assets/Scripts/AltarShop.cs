@@ -14,6 +14,9 @@ public class AltarShop : MonoBehaviour
     public int priceHealth;
     public int priceDamage;
     public TMP_Text damageMultiplierText;
+    public GameObject interactionPopUp;
+    public TMP_Text interactionPopUpText;
+    public Animator interactionAnimator;
 
     public void Shop()
     {
@@ -57,13 +60,6 @@ public class AltarShop : MonoBehaviour
         else
         {
             print("not enough essence");
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V)){
-            Shop();
         }
     }
 

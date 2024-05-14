@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             insomnia += 0.1f;
             print("Insomnia is" + insomnia);

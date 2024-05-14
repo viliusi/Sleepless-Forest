@@ -9,6 +9,9 @@ public class EnemyStats : MonoBehaviour
     public float maxHealth = 10;
     public PlayerStats playerStats;
     public GameObject player;
+    public Material[] material;
+    public Renderer rend;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
