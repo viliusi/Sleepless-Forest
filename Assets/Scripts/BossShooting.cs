@@ -32,6 +32,7 @@ public class BossShooting : MonoBehaviour
     {
         if (enemy.IsActive == true)
         {
+            // enemy shooting function
             if (shootingCooldown == false)
             {
 
@@ -52,6 +53,7 @@ public class BossShooting : MonoBehaviour
 
             }
 
+            // Boss burstfire function
             if (burst == false)
             {
                 burst = true;
@@ -84,6 +86,7 @@ public class BossShooting : MonoBehaviour
 
     }
 
+    // cooldown timers
     private IEnumerator ShootingCooldown()
     {
         shootingCooldown = true;

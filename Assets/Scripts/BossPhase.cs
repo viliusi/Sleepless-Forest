@@ -23,6 +23,7 @@ public class BossPhase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Boss second phase/enemy spawn funktion
         if (enemyStats.health <= 25)
         {
             if (spawnCooldown == false)
@@ -40,14 +41,14 @@ public class BossPhase : MonoBehaviour
             
 
         }
-
+        // Boss death funktion
         if (enemyStats.health <= 0) 
         {
             Destroy(gameObject);
         }
     }
 
-
+    // Enemy spawn cooldown
     private IEnumerator SpawnCooldown() 
     {
         
