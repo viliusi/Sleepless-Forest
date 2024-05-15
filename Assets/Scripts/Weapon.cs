@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public Transform Player;
 
     public float BulletForce = 20f;
-    public int bulletDamage;
+    public float bulletDamage;
     public EnemyStats enemyStats;
     bool shootingCooldown;
     public float shootingCooldownDuration = 0.5f;
@@ -40,7 +40,6 @@ public class Weapon : MonoBehaviour
         script.Weapon = this.gameObject;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * BulletForce, ForceMode2D.Impulse);
-        print("Player: " + firePoint.up);
         StartCoroutine(ShootingCooldown());
     }
 

@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
-    public int health;
-    public int maxHealth = 10;
+    public float health;
+    public float maxHealth = 10;
     public PlayerStats playerStats;
     public GameObject player;
+    public Material[] material;
+    public Renderer rend;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,6 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(gameObject);
             playerStats.nightEssence += 1 + ((int)playerStats.insomnia * 10);
-            print(playerStats.nightEssence);
             playerStats.nightEssenceText.text = playerStats.nightEssence.ToString();
         }
     }

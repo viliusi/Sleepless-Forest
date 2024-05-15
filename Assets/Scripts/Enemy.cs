@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
         {
             Vector3 direction = player.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
             direction.Normalize();
             movement = direction;
         }
@@ -39,13 +38,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator MoveEnemy(Vector2 direction)
+    IEnumerator MoveEnemy(Vector3 direction)
     {
         if (IsActive == true)
         {
             //temporary: Waits for two seconds before movement is activated, gives player a chance to act first
             yield return new WaitForSeconds(1f);
-            rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+            rb.MovePosition((Vector3)transform.position + (direction * speed * Time.deltaTime));
         }
     }
 
