@@ -10,6 +10,8 @@ TagManager:
   - EnemyTag
   - TrapTag
   - GameManager
+  - EndTrigger
+  - EndUI
   layers:
   - Default
   - TransparentFX

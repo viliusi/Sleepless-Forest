@@ -25,6 +25,8 @@ public class MapManager : MonoBehaviour
 
     public GameObject Player;
 
+    public int NightCount = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,13 @@ public class MapManager : MonoBehaviour
 
     private void setUp()
     {
+        // set height and width from nightCount
+        Height = NightCount * 2;
+        Width = NightCount * 2;
+
+        PlayerStartHeight = Random.Range(0, Height);
+        PlayerStartWidth = Random.Range(0, Width);
+
         // set up wall arrays based of height and width
         VerticalWalls = new bool[Width + 2, Height + 1];
         HorizontalWalls = new bool[Width + 1, Height + 2];

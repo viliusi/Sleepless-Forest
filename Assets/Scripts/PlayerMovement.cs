@@ -8,6 +8,7 @@ using UnityEngine.Sprites;
 public class PlayerMovement : MonoBehaviour
 {
 	public PlayerStats playerStats;
+	public MapManager mapManager;
 	public Material[] material;
 	public Renderer rend;
 	public float Speed;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 		_movementPossible = true;
 		rend.enabled = true;
 		staminaStatus.color = Color.green;
+		mapManager = playerStats.mapManager;
 	}
 
     void Update()
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 			//Basic movement, WASD
 			if (Input.GetKey(KeyCode.W))
 			{
-				//_lastMovement is defined and then used to move the player
+				///// tMovement is defined and then used to move the player
 				_lastMovement = Vector3.up * Time.deltaTime * Speed;
 				transform.Translate(_lastMovement);
 			}
@@ -72,6 +74,33 @@ public class PlayerMovement : MonoBehaviour
 				transform.Translate(_lastMovement * DodgeMultiplier);
 				staminaStatus.color = Color.black;
 				StartCoroutine(Cooldown());
+			}
+
+			// f to stay by the campfire, 20% heal, but insomnia goes up by 10%
+			if (Input.GetKey(KeyCode.F))
+			{
+				if (playerStats.CanProgress == true)
+				{
+					mapManager.NightCount += 1;
+					playerStats.health += playerStats.maxHealth * 0.2f;
+
+					// insomnia goes up by 10%
+					playerStats.insomnia += 10;
+
+					mapManager.Restart();
+				}
+			}
+			
+			// g to sleep, decrease insomnia by 20%
+			if (Input.GetKey(KeyCode.G))
+			{
+				if (playerStats.CanProgress == true)
+				{
+					mapManager.NightCount += 1;
+					playerStats.insomnia -= 20;
+
+					mapManager.Restart();
+				}
 			}
 		}
 	}
