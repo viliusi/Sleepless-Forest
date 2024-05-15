@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     public Animator animator;
     bool healthValuesOn;
     public float insomnia;
+    private Inventory inventory;
     public int nightEssence;
     public TextMeshProUGUI nightEssenceText;
     public Image[] EndPrompts;
@@ -30,6 +31,9 @@ public class PlayerStats : MonoBehaviour
     {
         health = maxHealth;
         damagePossible = true;
+
+        inventory = gameObject.GetComponent<Inventory>();
+        
         CanProgress = false;
         insomnia = 0;
         healthValuesOn = true;
@@ -139,6 +143,33 @@ public class PlayerStats : MonoBehaviour
             }
 
             CanProgress = false;
+        }
+    }
+    // When colliding with potions
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "HealingTag")
+        {
+            print("Healing Potion collected!");  
+            inventory.numberOfHealing = 20;
+            inventory.healingNumberText.text = inventory.numberOfHealing.ToString();
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "SpeedTag")
+        {
+            print("Speed Potion collected!");
+            inventory.numberOfSpeed++;
+            inventory.speedNumberText.text = inventory.speedNumberText.ToString();
+            Destroy(other.transform.gameObject);
+        }
+
+        if (other.gameObject.tag == "DamageTag")
+        {
+            print("Damage Potion collected!");
+            inventory.numberOfDamage++;
+            inventory.damageNumberText.text = inventory.damageNumberText.ToString();
+            Destroy(other.transform.gameObject);
         }
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine;
 public class Melee : MonoBehaviour
 {
     public Transform Player;
+    public EnemyStats enemyStats;
+    public GameObject MeleeWeapon;
 
-    private float damage;
+    private int meleeDamage;
 
     void Update()
     {
@@ -25,11 +27,13 @@ public class Melee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
         {
-            /*if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-            
-            }*/
+            Melee meleeweapon = MeleeWeapon.GetComponent<Melee>();
+            int damage = (meleeweapon.meleeDamage);
+            EnemyStats enemystats = other.gameObject.GetComponent<EnemyStats>();
+            enemystats.health -= damage;
+            }
         }
     }
 
