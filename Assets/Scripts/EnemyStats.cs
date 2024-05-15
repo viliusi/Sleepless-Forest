@@ -12,6 +12,7 @@ public class EnemyStats : MonoBehaviour
     public Material[] material;
     public Renderer rend;
     private SpriteRenderer spriteRenderer;
+    private float effectiveInsomnia; 
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class EnemyStats : MonoBehaviour
         if (health <= 0 && health == 0)
         {
             Destroy(gameObject);
-            playerStats.nightEssence += 1 + ((int)playerStats.insomnia * 10);
+            effectiveInsomnia = playerStats.insomnia * 10;
+            playerStats.nightEssence += (1 + ((int)effectiveInsomnia));
             playerStats.nightEssenceText.text = playerStats.nightEssence.ToString();
         }
     }
