@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 					playerStats.health += playerStats.maxHealth * 0.2f;
 
 					// insomnia goes up by 10%
-					playerStats.insomnia += 10;
+					playerStats.insomnia += 0.1f;
 
 					mapManager.Restart();
 				}
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 				if (playerStats.CanProgress == true)
 				{
 					mapManager.NightCount += 1;
-					playerStats.insomnia -= 20;
+					playerStats.insomnia -= 0.2f;
 
 					mapManager.Restart();
 				}

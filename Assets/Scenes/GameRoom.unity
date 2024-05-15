@@ -12765,7 +12765,8 @@ MonoBehaviour:
   damagePossible: 1
   healthBar: {fileID: 127584562}
   insomnia: 0
-  healthBar: {fileID: 127584562}
+  nightEssence: 0
+  nightEssenceText: {fileID: 580552704}
   EndPrompts: []
   EndTexts: []
   CanProgress: 0
@@ -18721,6 +18722,7 @@ RectTransform:
   - {fileID: 1428534939}
   - {fileID: 315520888}
   - {fileID: 782908643}
+  - {fileID: 580552703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

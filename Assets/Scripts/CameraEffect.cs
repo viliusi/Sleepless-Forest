@@ -32,12 +32,12 @@ public class CameraEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        chromaticAberration.intensity.value = playerStats.insomnia / 100f;
-        vignette.intensity.value = playerStats.insomnia / 200f;
-        lensDistortion.intensity.value = 0.5f + playerStats.insomnia / 1000f;
-        lensDistortion.scale.value = 1f - playerStats.insomnia / 500f;
-        filmGrain.intensity.value = playerStats.insomnia / 100f;
-        depthOfField.focusDistance.value = playerStats.insomnia;
-        depthOfField.focalLength.value = playerStats.insomnia;
+        chromaticAberration.intensity.value = playerStats.insomnia * 100f;
+        vignette.intensity.value = playerStats.insomnia / 2f;
+        lensDistortion.intensity.value = 0.5f + playerStats.insomnia / 10f;
+        lensDistortion.scale.value = 1f - playerStats.insomnia / 5f;
+        filmGrain.intensity.value = playerStats.insomnia;
+        depthOfField.focusDistance.value = playerStats.insomnia * 100f;
+        depthOfField.focalLength.value = playerStats.insomnia * 100f;
     }
 }
