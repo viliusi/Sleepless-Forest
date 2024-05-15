@@ -46,8 +46,8 @@ public class PlayerStats : MonoBehaviour
             Image[] allImages = canvas.GetComponentsInChildren<Image>(true);
             EndPrompts = Array.FindAll(allImages, img => img.CompareTag("EndUI"));
 
-            // Get all TextMeshProUGUI components
-            EndTexts = canvas.GetComponentsInChildren<TextMeshProUGUI>(true);
+            // Get all TextMeshProUGUI components with the tag EndUI
+            EndTexts = Array.FindAll(canvas.GetComponentsInChildren<TextMeshProUGUI>(true), text => text.CompareTag("EndUI"));
         }
         else
         {
@@ -125,6 +125,27 @@ public class PlayerStats : MonoBehaviour
 
             CanProgress = true;
         }
+        else if (other.gameObject.tag == "HealingTag")
+        {
+            print("Healing Potion collected!");  
+            inventory.numberOfHealing = 20;
+            inventory.healingNumberText.text = inventory.numberOfHealing.ToString();
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "SpeedTag")
+        {
+            print("Speed Potion collected!");
+            inventory.numberOfSpeed++;
+            inventory.speedNumberText.text = inventory.speedNumberText.ToString();
+            Destroy(other.transform.gameObject);
+        }
+        else if (other.gameObject.tag == "DamageTag")
+        {
+            print("Damage Potion collected!");
+            inventory.numberOfDamage++;
+            inventory.damageNumberText.text = inventory.damageNumberText.ToString();
+            Destroy(other.transform.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -143,33 +164,6 @@ public class PlayerStats : MonoBehaviour
             }
 
             CanProgress = false;
-        }
-    }
-    // When colliding with potions
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "HealingTag")
-        {
-            print("Healing Potion collected!");  
-            inventory.numberOfHealing = 20;
-            inventory.healingNumberText.text = inventory.numberOfHealing.ToString();
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject.tag == "SpeedTag")
-        {
-            print("Speed Potion collected!");
-            inventory.numberOfSpeed++;
-            inventory.speedNumberText.text = inventory.speedNumberText.ToString();
-            Destroy(other.transform.gameObject);
-        }
-
-        if (other.gameObject.tag == "DamageTag")
-        {
-            print("Damage Potion collected!");
-            inventory.numberOfDamage++;
-            inventory.damageNumberText.text = inventory.damageNumberText.ToString();
-            Destroy(other.transform.gameObject);
         }
     }
 }

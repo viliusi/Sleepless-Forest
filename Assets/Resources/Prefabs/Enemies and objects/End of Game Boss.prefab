@@ -31,7 +31,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798502930723956902}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
@@ -40,6 +39,7 @@ Transform:
   - {fileID: 6178391977834773995}
   - {fileID: 5288667965358546681}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1165821494764009363
 SpriteRenderer:
@@ -149,8 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  IsActive: 0
-  BossPhase: {fileID: 0}
+  IsActive: 1
 --- !u!61 &1215688185729239078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,7 +231,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5426102145330756329, guid: e8b89a79615e7f24c96dd41372b2fae9, type: 3}
   firePoint: {fileID: 5288667965358546681}
   enemyStats: {fileID: -5670721146547487616}
+  mapManager: {fileID: 0}
   spawnCooldownDuration: 15
+  IsActive: 0
 --- !u!114 &-5670721146547487616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 50
+  maxHealth: 1000
+  playerStats: {fileID: 0}
+  player: {fileID: 0}
+  material: []
+  rend: {fileID: 0}
 --- !u!1001 &7523147229383680617
 PrefabInstance:
   m_ObjectHideFlags: 0

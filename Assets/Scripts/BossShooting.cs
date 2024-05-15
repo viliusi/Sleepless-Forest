@@ -25,6 +25,8 @@ public class BossShooting : MonoBehaviour
         shootingCooldown = false;
         s2Cooldown = false;
         burst = false;
+
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame

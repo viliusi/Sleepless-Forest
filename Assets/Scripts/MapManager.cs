@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
     public int PlayerStartWidth;
 
     public List<GameObject> Maps = new List<GameObject>();
+    public GameObject bossPrefab;
     public GameObject HorizontalHedgeClosed;
     public GameObject HorizontalHedgeOpen;
     public GameObject VerticalHedgeClosed;
@@ -62,7 +63,9 @@ public class MapManager : MonoBehaviour
             endY = Random.Range(0, Height);
         }
 
-        AllScreens.Add(Instantiate(Maps[1], new Vector3(endX * 16, endY * 9, 0.01f), Quaternion.identity));
+        AllScreens.Add(
+            Instantiate(Maps[1], new Vector3(endX * 16, endY * 9, 0.01f), Quaternion.identity)
+        );
 
         for (int i = 0; i < Height + 1; i++)
         {
@@ -72,37 +75,45 @@ public class MapManager : MonoBehaviour
                 {
                     if (j == PlayerStartHeight)
                     {
-                        AllScreens.Add(Instantiate(Maps[0], new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
+                        AllScreens.Add(
+                            Instantiate(
+                                Maps[0],
+                                new Vector3(i * 16, j * 9, 0.01f),
+                                Quaternion.identity
+                            )
+                        );
                     }
                     else
                     {
-                        if (i == endX && j == endY)
-                        {
-
-                        }
+                        if (i == endX && j == endY) { }
                         else
                         {
                             int random = Random.Range(2, Maps.Count);
 
                             GameObject map = Maps[random];
 
-                            AllScreens.Add(Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
+                            AllScreens.Add(
+                                Instantiate(
+                                    map,
+                                    new Vector3(i * 16, j * 9, 0.01f),
+                                    Quaternion.identity
+                                )
+                            );
                         }
                     }
                 }
                 else
                 {
-                    if (i == endX && j == endY)
-                    {
-
-                    }
+                    if (i == endX && j == endY) { }
                     else
                     {
                         int random = Random.Range(2, Maps.Count);
 
                         GameObject map = Maps[random];
 
-                        AllScreens.Add(Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity));
+                        AllScreens.Add(
+                            Instantiate(map, new Vector3(i * 16, j * 9, 0.01f), Quaternion.identity)
+                        );
                     }
                 }
             }
@@ -110,22 +121,42 @@ public class MapManager : MonoBehaviour
 
         for (int i = 0; i < Width + 1; i++)
         {
-            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3(-7.5f, i * 9, 0), Quaternion.identity));
+            AllWalls.Add(
+                Instantiate(
+                    HorizontalHedgeClosed,
+                    new Vector3(-7.5f, i * 9, 0),
+                    Quaternion.identity
+                )
+            );
         }
 
         for (int i = 0; i < Width + 1; i++)
         {
-            AllWalls.Add(Instantiate(HorizontalHedgeClosed, new Vector3((Width * 16) + 7.5f, i * 9, 0), Quaternion.identity));
+            AllWalls.Add(
+                Instantiate(
+                    HorizontalHedgeClosed,
+                    new Vector3((Width * 16) + 7.5f, i * 9, 0),
+                    Quaternion.identity
+                )
+            );
         }
 
         for (int i = 0; i < Height + 1; i++)
         {
-            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, -4, 0), Quaternion.identity));
+            AllWalls.Add(
+                Instantiate(VerticalHedgeClosed, new Vector3(i * 16, -4, 0), Quaternion.identity)
+            );
         }
 
         for (int i = 0; i < Height + 1; i++)
         {
-            AllWalls.Add(Instantiate(VerticalHedgeClosed, new Vector3(i * 16, (Height * 9) + 4, 0), Quaternion.identity));
+            AllWalls.Add(
+                Instantiate(
+                    VerticalHedgeClosed,
+                    new Vector3(i * 16, (Height * 9) + 4, 0),
+                    Quaternion.identity
+                )
+            );
         }
     }
 
@@ -215,7 +246,6 @@ public class MapManager : MonoBehaviour
                             retry = false;
                         }
                         break;
-
                 }
 
                 if (attempts > 10)
@@ -241,11 +271,19 @@ public class MapManager : MonoBehaviour
 
                 if (open == true)
                 {
-                    wall = Instantiate(HorizontalHedgeOpen, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(
+                        HorizontalHedgeOpen,
+                        new Vector3(i * 16 + 8, j * 9, 0),
+                        Quaternion.identity
+                    );
                 }
                 else
                 {
-                    wall = Instantiate(HorizontalHedgeClosed, new Vector3(i * 16 + 8, j * 9, 0), Quaternion.identity);
+                    wall = Instantiate(
+                        HorizontalHedgeClosed,
+                        new Vector3(i * 16 + 8, j * 9, 0),
+                        Quaternion.identity
+                    );
                 }
 
                 AllWalls.Add(wall);
@@ -265,11 +303,19 @@ public class MapManager : MonoBehaviour
 
                 if (open == true)
                 {
-                    wall = Instantiate(VerticalHedgeOpen, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(
+                        VerticalHedgeOpen,
+                        new Vector3(i * 16, j * 9 + 4.5f, 0),
+                        Quaternion.identity
+                    );
                 }
                 else
                 {
-                    wall = Instantiate(VerticalHedgeClosed, new Vector3(i * 16, j * 9 + 4.5f, 0), Quaternion.identity);
+                    wall = Instantiate(
+                        VerticalHedgeClosed,
+                        new Vector3(i * 16, j * 9 + 4.5f, 0),
+                        Quaternion.identity
+                    );
                 }
 
                 AllWalls.Add(wall);
@@ -320,10 +366,23 @@ public class MapManager : MonoBehaviour
             Destroy(screen);
         }
 
-        setUp();
+        if (NightCount % 5 == 0) 
+        { 
+            Instantiate(bossPrefab, new Vector3(16, 9, -1), Quaternion.identity);
 
-        crawler();
+            Camera.main.orthographicSize = 10;
 
-        Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
+            Player.transform.position = new Vector3(16, 2, -1);
+        }
+        else
+        {
+            Camera.main.orthographicSize = 5;
+
+            setUp();
+
+            crawler();
+
+            Player.transform.position = new Vector3(PlayerStartWidth * 16, PlayerStartHeight * 9, -1);
+        }
     }
 }

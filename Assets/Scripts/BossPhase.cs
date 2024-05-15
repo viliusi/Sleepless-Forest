@@ -21,13 +21,18 @@ public class BossPhase : MonoBehaviour
     {
         enemyStats.health = 50;
         spawnCooldown = false;
+
+        player = GameObject.Find("Player").transform;
+
+        PlayerStats playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        mapManager = playerStats.mapManager;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Boss second phase/enemy spawn funktion
-        if (enemyStats.health <= 25)
+        if (enemyStats.health <= enemyStats.maxHealth / 2)
         {
             if (spawnCooldown == false)
             {
@@ -51,7 +56,7 @@ public class BossPhase : MonoBehaviour
         // Boss death function
         if (enemyStats.health <= 0) 
         {
-            // mapManager.NightCount += 1;
+            mapManager.NightCount += 1;
 
             mapManager.Restart();
 
