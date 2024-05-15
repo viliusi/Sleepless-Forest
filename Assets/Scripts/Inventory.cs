@@ -96,7 +96,6 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        print("numberofHealing: " + numberOfHealing);
         healingNumberText.text = numberOfHealing.ToString();
         speedNumberText.text = numberOfSpeed.ToString();
         damageNumberText.text = numberOfDamage.ToString();

@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
-
         player = GameObject.FindWithTag("PlayerTag").transform;
     }
 
@@ -28,6 +27,7 @@ public class Enemy : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             direction.Normalize();
             movement = direction;
+            rb.rotation = angle;
         }
     }
     private void FixedUpdate()
