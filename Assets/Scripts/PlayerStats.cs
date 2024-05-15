@@ -4,14 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
     public float health;
     public float maxHealth;
     public bool damagePossible;
-    public float insomnia;
     public Image healthBar;
+    public float insomnia;
+    public int nightEssence;
+    public TextMeshProUGUI nightEssenceText;
     public Image[] EndPrompts;
     public TextMeshProUGUI[] EndTexts;
     public bool CanProgress;
@@ -23,6 +27,7 @@ public class PlayerStats : MonoBehaviour
         health = maxHealth;
         damagePossible = true;
         CanProgress = false;
+        insomnia = 0;
 
         GameObject canvas = GameObject.Find("Canvas");
 
@@ -51,6 +56,15 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            insomnia += 0.1f;
+            print("Isnomnia is: " + insomnia);
+        }
+    }
+
     //amount being damage to be dealt; duration being the number of times this occurs
     public IEnumerator TakeDamage(int amount, int duration)
     {
@@ -58,9 +72,11 @@ public class PlayerStats : MonoBehaviour
         {
             for (int i = duration; i > 0; i--)
             {
-                health -= amount;
-                healthBar.fillAmount = health / 10;
+                health -= (amount + (amount * insomnia));
+                healthBar.fillAmount = health / 100;
+                print("health is now " + health);
                 yield return new WaitForSeconds(1f);
+
                 if (health <= 0)
                 {
                     SceneManager.LoadScene(0);

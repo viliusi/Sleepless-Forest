@@ -30,7 +30,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5426102145330756329}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 48.02, y: 10.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 7892397746871309732}
   m_Father: {fileID: 0}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7033408129353705184
 SpriteRenderer:
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300012, guid: fbe1e7b94bb1a4a099d5bcb15a00141c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3863793805341772875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  damage: 2
+  damage: 20
   duration: 1
   player: {fileID: 0}
 --- !u!114 &3622717634764615791
@@ -147,7 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 10
+  maxHealth: 100
+  playerStats: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &8066834394363956357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +224,9 @@ MonoBehaviour:
   firePoint: {fileID: 7892397746871309732}
   bulletPrefab: {fileID: 6966578794968023144, guid: 6ed9b41275c2130428b297bde48af72c, type: 3}
   BulletForce: 5
-  bulletDamage: 0
+  bulletDamage: 10
   playerStats: {fileID: 0}
-  shootingCooldownDuration: 1
+  shootingCooldownDuration: 4
   enemy: {fileID: 8066834394363956357}
 --- !u!1001 &5791336239089945126
 PrefabInstance:
